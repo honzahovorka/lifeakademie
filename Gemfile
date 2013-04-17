@@ -30,5 +30,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# JavasScript libs
 gem 'jquery-rails'
+gem 'modernizr-rails'
+# Webserver
 gem 'thin'
