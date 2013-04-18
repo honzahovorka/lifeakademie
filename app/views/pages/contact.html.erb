@@ -25,7 +25,30 @@
         <li>V blízkosti <b>Masarykova nádraží</b> a autobusového nadráží <b>Florenc</b></li>
         <li>Parkování před budovou zdarma</li>
       </ul>
+    </div>
 
+    <div class="one-third column">
+      <h3>Kontaktní formulář</h3>
+      <form id="contactform" class="contact-form" name="contactform" method="post">
+        <input type="hidden" value="contacts" name="contact_form_name">
+        <p class="input-block">
+          <label><span class="required">*</span>Jméno:</label>
+          <input type="text" value="" name="your_name">
+        </p>
+        <p class="input-block">
+          <label><span class="required">*</span>E-mail:</label>
+          <input type="text" value="" name="your_email">
+        </p>
+        <p class="input-block">
+          <label><span class="required">*</span>Zpráva:</label>
+          <textarea name="message"></textarea>
+        </p>
+        <p class="input-block">
+          <iframe width="72" scrolling="no" height="27" frameborder="0" name="capcha_image_frame" class="capcha_image_frame" style="vertical-align: middle;" marginwidth="0" marginheight="0" src="http://blessing.webtemplatemasters.com/?update_capcha=1"></iframe>
+          <input type="text" class="verify" name="verify" size="6" value="" style="width: 60px; margin: 0 0 0 8px; vertical-align: middle;">
+        </p><!--/ .row-->
+        <input type="submit" value="Odeslat" class="button default small">
+      </form>
     </div>
 
     <div class="border-divider"></div>
