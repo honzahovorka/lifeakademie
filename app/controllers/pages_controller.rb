@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       render 'pages/courses/course-plan'
     elsif params[:subpage] == 'metody-vyuky'
       render 'pages/courses/methods'
-    elsif params[:subpage] == 'certifikat'
+    elsif params[:subpage] == 'osvedceni'
       render 'pages/courses/certificate'
     end
   end
