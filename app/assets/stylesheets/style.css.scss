@@ -2701,13 +2701,13 @@ article.entry .entry-body {
 
 footer {
   position: relative;
-  padding: 25px 0 15px;
-  border-top: 1px solid #cccac2;
-  background-color: rgba(0,0, 0, .1);
-  background-color: #cfeb16;
+
+  .footer {
+    border-top: 1px solid #cccac2;
+    padding: 25px 0;
+  }
 
   &:hover {
-    background-color: #d8f037;
   }
 }
 
