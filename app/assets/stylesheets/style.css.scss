@@ -2204,32 +2204,32 @@ article.entry .entry-body {
       -o-transition: none;
       transition: none;
     }
-    
+
     .widget_search button[type="submit"]:hover {background-position: 0 bottom;}
-  
+
   /* ---------------------------------------- */
-  /*	Soonest Event
+  /* Soonest Event
   /* ---------------------------------------- */
-  
+
   .widget_soonest_event .label-event {
     display: block;
     margin-bottom: .8em;
   }
-  
+
   /* ---------------------------------------- */
-  /*	Custom Recent Entries
+  /* Custom Recent Entries
   /* ---------------------------------------- */
-  
+
   .ie7 .widget_custom_recent_entries ul,
   .ie7 .widget_custom_recent_entries ul li {overflow: hidden;}
-  
+
   .widget_custom_recent_entries ul {margin-bottom: 15px;}
-  
+
     .widget_custom_recent_entries li {
       padding: 13px 0 8px;
       border-top: 1px solid #d7d5cf;
     }
-  
+
     .widget_custom_recent_entries li:after {
       clear: both;
       display: block;
@@ -2251,20 +2251,20 @@ article.entry .entry-body {
           color: #6b6b6b;
           font-size: 11px;
         }
-        
+
   /* ---------------------------------------- */
-  /*	Recent Projects
+  /* Recent Projects
   /* ---------------------------------------- */	
-  
+
   .widget_recent_projects {position: relative;}
-  
+
     .recent-projects-box {margin-bottom: 15px;}
-    
+
     .recent-projects li, .quoteBox li {
       width: 100%;
       background-color: transparent !important;
     }
-    
+
       .widget_recent_projects h6 {margin-bottom: 0;}
 
       .widget_recent_projects .entry-meta {margin-bottom: 15px;}
@@ -2276,8 +2276,8 @@ article.entry .entry-body {
       }
 
   /* -------------------------------------------------- */
-  /*	Calendar
-  /* -------------------------------------------------- */		
+  /* Calendar
+  /* -------------------------------------------------- */
 
   .widget_calendar table {
     width: 100%;
@@ -2292,12 +2292,12 @@ article.entry .entry-body {
       border-width: 1px;
       border-style: solid;
       border-color: #d2cfc9;
-      background-color: #F1EFE5;						
+      background-color: #F1EFE5;
       color: #222;
       font-weight: 700;
       -webkit-box-shadow: 0 0 2px rgba(0,0,0,.15);
          -moz-box-shadow: 0 0 2px rgba(0,0,0,.15);
-             box-shadow: 0 0 2px rgba(0,0,0,.15);
+              box-shadow: 0 0 2px rgba(0,0,0,.15);
     }
 
       .widget_calendar thead th {
@@ -2305,7 +2305,7 @@ article.entry .entry-body {
         border-width: 1px;
         border-style: solid;
         border-color: #d2cfc9;
-        background-color: #FDFBF3;						
+        background-color: #FDFBF3;
         color: #858585;
         font-size: 12px;
       }
@@ -2336,7 +2336,7 @@ article.entry .entry-body {
         display: block;
         border-color: #6b6b6b;
       }
-      
+
       .widget_calendar tfoot td > a {padding: 0;}
 
     .widget_calendar tfoot {
@@ -2346,17 +2346,17 @@ article.entry .entry-body {
 
     .widget_calendar tfoot a {color: #858585;}
 
-    .widget_calendar tfoot #prev {text-align: left; }
-    .widget_calendar tfoot #next {text-align: right;}					
-    
+    .widget_calendar tfoot #prev { text-align: left; }
+    .widget_calendar tfoot #next { text-align: right; }
+
   /* ---------------------------------------- */
-  /*	Twitter
+  /* Twitter
   /* ---------------------------------------- */
-  
+
   .widget_latest_tweets {position: relative;}
-  
+
     #content .jta-tweet-list { padding-right: 60px; }
-  
+
     .jta-tweet-list .jta-tweet-list-item {margin-top: 25px;}
 
     .jta-tweet-list li:first-child {
@@ -2377,7 +2377,7 @@ article.entry .entry-body {
       }
 
         .jta-tweet-a {color: #4d8f9b;}
-        
+
         .jta-tweet-timestamp-link {
           display: block;
           color: #919191;
@@ -2385,13 +2385,13 @@ article.entry .entry-body {
           font-style: italic;
           padding-top: 5px;
         }
-        
+
   .jta-tweet-list-controls {
     position: absolute;
     top: 2px;
     right: 0;
   }
-   
+
     .jta-tweet-list-controls-button,
     .recent-projects-nav a {
       position: relative;
