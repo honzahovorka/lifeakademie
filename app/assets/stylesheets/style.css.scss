@@ -560,7 +560,9 @@ ol.list li {padding: 7px 0;}
 ol.list.type-1 li {list-style: inside decimal-leading-zero;}
 ol.list.type-2 li {list-style: inside decimal;}
 
-ul.list {
+
+ul.list,
+ol.list {
   margin-bottom: 20px;
   margin-left: 20px;
 }
@@ -571,6 +573,10 @@ ul.list li {
   background-position: 0 .6em;
   background-repeat: no-repeat;
 }
+
+.no-list { list-style: none; }
+
+ol li > ul { margin-left: 20px; }
 
 ul.list.type-1 li {background-image: url(images/icons/16x16/tick.png);}
 ul.list.type-2 li {background-image: url(images/icons/16x16/add_small.png);}
