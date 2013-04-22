@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
           right: 'rightarrowclass'
       };
       var $mainNav = $('#navigation').find('ul'),
-              optionsList = '<option value="" selected>Navigation</option>';
+              optionsList = '<option value="" selected>Navigace</option>';
 
       var $submenu = $mainNav.find("ul").parent();
       $submenu.each(function(i) {
@@ -48,6 +48,10 @@ jQuery(document).ready(function($) {
           optionsList += '<option value="' + $anchor.attr('href') + '">' + dash + ' ' + $anchor.text() + '</option>';
 
       }).end()
-              .after('<select class="nav-responsive">' + optionsList + '</select>');
+        .after('<select class="nav-responsive">' + optionsList + '</select>');
+
+        $('.nav-responsive').on('change', function() {
+            window.location = $(this).val();
+        });
   })();
 });

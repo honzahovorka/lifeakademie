@@ -1460,7 +1460,7 @@ header .container { z-index: 2;}
   width: 100%;
   border-color: #fff;
   background-color: #fff;
-  background-image: url(images/nav-bg.png);
+  background-image: image-url('layout/nav-bg.png');
   background-position: right center;
   background-repeat: no-repeat;
   -webkit-box-sizing: border-box;
@@ -3334,12 +3334,18 @@ article.entry .entry-body {
 
 .navigation > div > ul > li > a { padding: .6em 0; }
 
+.navigation { top: 10px; }
+
+.navigation > div > ul {display: none;}
+
+.navigation .nav-responsive {display: inline-block;}
+
 
 /* -------------------------------------------------- */
 /* Panel
 /* -------------------------------------------------- */
 
-.control_panel {display: none;}	
+.control_panel {display: none;}
 
 /* -------------------------------------------------- */
 /* Pics Wrapper
