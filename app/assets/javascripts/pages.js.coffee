@@ -3,4 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
 $ ->
+  if $(".toggle-container").length
+    $(".toggle-container").hide()
+    $(".box-toggle").on "click", ".trigger", (e) ->
+      self = $(e.target)
+      self.toggleClass("active").next().stop(true, true).slideToggle "slow"
+      #    $.fn.autoload();
+      e.preventDefault()
+
+$ ->
   $('#accordion').accordion()
+
