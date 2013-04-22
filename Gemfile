@@ -32,6 +32,7 @@ end
 
 # JavasScript libs
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 # Webserver
 gem 'thin'
