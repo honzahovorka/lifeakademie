@@ -1,0 +1,69 @@
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <div id="form_errors_explanation" class="alert">
+          <p><strong>Registrace nebyla úspěšná. Vyskytly se tyto chyby:</strong></p>
+          <ul class="list">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="four columns r label">
+      <%= f.label :email, 'E-mail: ' %>
+    </div>
+    <div class="eleven columns">
+      <%= f.text_field :email, placeholder: 'E-mail' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns r label">
+      <%= f.label :password, 'Heslo: ' %>
+    </div>
+    <div class="eleven columns">
+      <%= f.password_field :password, placeholder: 'Heslo' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns r label">
+      <%= f.label :password_confirmation, 'Heslo znovu: ' %>
+    </div>
+    <div class="eleven columns">
+      <%= f.password_field :password_confirmation, placeholder: 'Potvrzení hesla' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns r label">
+      <%= f.label :name, 'Jméno: ' %>
+    </div>
+    <div class="eleven columns">
+      <%= f.text_field :name, placeholder: 'Jméno' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns r label">
+      <%= f.label :surname, 'Příjmení: ' %>
+    </div>
+    <div class="eleven columns">
+      <%= f.text_field :surname, placeholder: 'Příjmení' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns r label"></div>
+    <div class="eleven columns"></div>
+  </div>
+  <div class="row">
+    <div class="four columns">&nbsp;</div>
+    <div class="nine columns">
+      <button class="button default small" type="submit">Odeslat</button>
+    </div>
+  </div>
+<% end %>

@@ -30,6 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'bcrypt-ruby', require: 'bcrypt'
 # JavasScript libs
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
