@@ -1,4 +1,12 @@
 LifeakademieCz::Application.routes.draw do
+  match '/registrace' => 'users#new', via: :get
+  resources :users
+
+  match '/prihlasit' => 'sessions#new', via: :get
+  match '/odhlasit' => 'sessions#destroy', via: :get
+
+  match '/prihlasit' => 'sessions#create', via: :post
+
   match '/kurzy(/:subpage)' => 'pages#courses', via: :get, as: 'courses'
   match '/terminy(/:location)' => 'pages#dates', via: :get, as: 'dates'
   match '/o-nas' => 'pages#about', via: :get, as: 'about'
