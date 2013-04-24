@@ -983,7 +983,7 @@ label.required {
 }
 
 fieldset {
-  border-top: 1px solid #C3C1BA;
+  border-top: 1px dotted #C3C1BA;
   padding: 1em;
   margin: 1em 0;
 }
@@ -3285,6 +3285,10 @@ img {
   /* ---------------------------------------------------------------------- */
 
   #bottom-footer {padding: 22px 3px; }
+
+  form .r {
+    text-align: left !important;
+  }
 }
 
 
@@ -3408,6 +3412,11 @@ img {
   }
 
   .flickr-badge li.last {margin-right: 20px;}
+
+  form .r {
+    text-align: left !important;
+  }
+
 
 }
 
