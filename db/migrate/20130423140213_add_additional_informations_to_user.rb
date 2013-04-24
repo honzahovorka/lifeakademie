@@ -9,7 +9,7 @@ class AddAdditionalInformationsToUser < ActiveRecord::Migration
 
     add_column :users, :billing_street,           :string
     add_column :users, :billing_city,             :string
-    add_column :users, :billing_postal_code,      :interger
+    add_column :users, :billing_postal_code,      :integer
 
     add_column :users, :company,                  :string
     add_column :users, :ic,                       :string
