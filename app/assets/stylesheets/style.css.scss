@@ -950,7 +950,7 @@ input#submit:hover {color: #fff;}
 .align-btn-right {float: right;}
 
 /* -------------------------------------------------- */
-/*	Forms
+/* Forms
 /* -------------------------------------------------- */
 
 button,
@@ -971,6 +971,27 @@ textarea {
 }
 
 label { display: inline-block; cursor: pointer; height: 28px; line-height: 28px; vertical-align: middle; }
+
+label.required {
+  font-weight: bold;
+
+  &:before {
+    content: '*';
+    color: #e7959f;
+    margin-right: 5px;
+  }
+}
+
+fieldset {
+  border-top: 1px solid #C3C1BA;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+legend {
+  font-size: 16px;
+  padding: 0 .5em;
+}
 
 input[type="password"], input[type="text"], textarea, select {
   display: inline-block;

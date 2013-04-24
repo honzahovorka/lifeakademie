@@ -11,6 +11,3 @@ $ ->
       #    $.fn.autoload();
       e.preventDefault()
 
-$ ->
-  $('#accordion').accordion()
-

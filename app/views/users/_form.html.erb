@@ -16,54 +16,144 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="four columns r label">
-      <%= f.label :email, 'E-mail: ' %>
+  <fieldset>
+    <legend>Základní údaje</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :email, 'E-mail: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :email, placeholder: 'jmeno@domena.cz', class: 'required' %>
+      </div>
     </div>
-    <div class="eleven columns">
-      <%= f.text_field :email, placeholder: 'E-mail' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :password, 'Heslo: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.password_field :password, placeholder: 'Heslo' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="four columns r label">
-      <%= f.label :password, 'Heslo: ' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :password_confirmation, 'Heslo znovu: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.password_field :password_confirmation, placeholder: 'Potvrzení hesla' %>
+      </div>
     </div>
-    <div class="eleven columns">
-      <%= f.password_field :password, placeholder: 'Heslo' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :name, 'Jméno: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :name, placeholder: 'Jméno' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="four columns r label">
-      <%= f.label :password_confirmation, 'Heslo znovu: ' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :surname, 'Příjmení: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :surname, placeholder: 'Příjmení' %>
+      </div>
     </div>
-    <div class="eleven columns">
-      <%= f.password_field :password_confirmation, placeholder: 'Potvrzení hesla' %>
+
+  </fieldset>
+  <fieldset>
+    <legend>Adresa bydliště</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :street, 'Ulice: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :street, placeholder: 'Ulice' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="four columns r label">
-      <%= f.label :name, 'Jméno: ' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :city, 'Město: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :city, placeholder: 'Město' %>
+      </div>
     </div>
-    <div class="eleven columns">
-      <%= f.text_field :name, placeholder: 'Jméno' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :postal_code, 'PSČ: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :postal_code, placeholder: 'PSČ' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="four columns r label">
-      <%= f.label :surname, 'Příjmení: ' %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fakturační údaje</legend>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <p>Ponechte prázdné pokud je fakturační adresa totožná s adresou bydliště.</p>
+      </div>
     </div>
-    <div class="eleven columns">
-      <%= f.text_field :surname, placeholder: 'Příjmení' %>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :company, 'Firma: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :company, placeholder: 'Firma' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="four columns r label"></div>
-    <div class="eleven columns"></div>
-  </div>
-  <div class="row">
-    <div class="four columns">&nbsp;</div>
-    <div class="nine columns">
-      <button class="button default small" type="submit">Odeslat</button>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_street, 'Ulice: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_street, placeholder: 'Ulice' %>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_city, 'Město: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_city, placeholder: 'Město' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_postal_code, 'PSČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_postal_code, placeholder: 'PSČ' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :ic, 'IČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :ic, placeholder: 'IČ' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :dic, 'DIČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :dic, placeholder: 'DIČ' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="nine columns">
+        <button class="button default small" type="submit">Odeslat</button>
+      </div>
+    </div>
+  </fieldset>
 <% end %>
