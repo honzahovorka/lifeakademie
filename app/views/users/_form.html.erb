@@ -20,11 +20,19 @@
     <legend>Základní údaje</legend>
 
     <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <p>Povinné údaje jsou označeny tučně a <span class="required">*</span></p>
+        <p>Pro základní registraci stačí vyplnit následujicí povinné údaje. Před rezervací do kurzu bude vyžadováno doplnění všech údajů potřebných k účasti v kurzu.</p>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="four columns r label">
         <%= f.label :email, 'E-mail: ', class: 'required' %>
       </div>
       <div class="eleven columns">
-        <%= f.text_field :email, placeholder: 'jmeno@domena.cz', class: 'required' %>
+        <%= f.text_field :email, placeholder: 'jmeno@domena.cz' %>
       </div>
     </div>
     <div class="row">
@@ -37,7 +45,7 @@
     </div>
     <div class="row">
       <div class="four columns r label">
-        <%= f.label :password_confirmation, 'Heslo znovu: ', class: 'required' %>
+        <%= f.label :password_confirmation, 'Heslo: ', class: 'required' %>
       </div>
       <div class="eleven columns">
         <%= f.password_field :password_confirmation, placeholder: 'Potvrzení hesla' %>
@@ -59,14 +67,30 @@
         <%= f.text_field :surname, placeholder: 'Příjmení' %>
       </div>
     </div>
-
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :date_of_birth, 'Datum narození: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :date_of_birth, placeholder: 'dd.mm.yyyy', class: 'datepicker' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :place_of_birth, 'Místo narození: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :place_of_birth, placeholder: 'Místo narození' %>
+      </div>
+    </div>
   </fieldset>
+
   <fieldset>
     <legend>Adresa bydliště</legend>
 
     <div class="row">
       <div class="four columns r label">
-        <%= f.label :street, 'Ulice: ', class: 'required' %>
+        <%= f.label :street, 'Ulice: ' %>
       </div>
       <div class="eleven columns">
         <%= f.text_field :street, placeholder: 'Ulice' %>
@@ -74,7 +98,7 @@
     </div>
     <div class="row">
       <div class="four columns r label">
-        <%= f.label :city, 'Město: ', class: 'required' %>
+        <%= f.label :city, 'Město: ' %>
       </div>
       <div class="eleven columns">
         <%= f.text_field :city, placeholder: 'Město' %>
@@ -82,7 +106,7 @@
     </div>
     <div class="row">
       <div class="four columns r label">
-        <%= f.label :postal_code, 'PSČ: ', class: 'required' %>
+        <%= f.label :postal_code, 'PSČ: ' %>
       </div>
       <div class="eleven columns">
         <%= f.text_field :postal_code, placeholder: 'PSČ' %>

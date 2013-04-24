@@ -11,3 +11,5 @@ $ ->
       #    $.fn.autoload();
       e.preventDefault()
 
+$ ->
+  $('.datepicker').datepicker()

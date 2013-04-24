@@ -95,7 +95,7 @@ Stylesheet Guide
 /* ---------------------------------------------------------------------- */
 /* Reset
 /* ---------------------------------------------------------------------- */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:200,400,600&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext);
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -253,6 +253,11 @@ body {
   -webkit-font-smoothing: antialiaszed; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
   font: 14px/1.5 'Open Sans', Arial;
+  font-weight: 300;
+}
+
+b, strong {
+  font-weight: 600;
 }
 
 body {
@@ -981,6 +986,46 @@ label.required {
     margin-right: 5px;
   }
 }
+
+.ui-state-default {
+  display: block;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  height: 33px;
+  line-height: 33px;
+  display: inline-block;
+  border: 1px solid transparent;
+  span {
+    vertical-align: middle;
+    margin: 8px;
+  }
+}
+
+.ui-datepicker-prev {
+  float: left;
+}
+
+.ui-datepicker-next{
+  float: right;
+}
+
+.ui-datepicker-title {
+  padding: 5px 3px;
+  text-align: center;
+}
+
+.ui-datepicker-calendar {
+  th {
+    padding: 5px;
+  }
+}
+
+form p { font-size: 12px; }
+form p > .required { color: #e7959f; }
 
 fieldset {
   border-top: 1px dotted #C3C1BA;
@@ -2870,11 +2915,11 @@ footer .widget_contact_form label { display: block; }
      -moz-border-radius: 50%;
           border-radius: 50%;
 
-  -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
-      -ms-transition: all .2s linear;
-       -o-transition: all .2s linear;
-          transition: all .2s linear;
+     -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+         -ms-transition: all .2s linear;
+          -o-transition: all .2s linear;
+             transition: all .2s linear;
 }
 
   #back-top:hover {
@@ -2942,7 +2987,7 @@ footer .widget_contact_form label { display: block; }
   background:         linear-gradient(to bottom,  #faf9f7 0%,#dad9d3 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf9f7', endColorstr='#dad9d3',GradientType=0 ); /* IE6-9 */
 }
-  
+
 .not-ie .tabs-style-1 .tabs-nav li a,
 .not-ie .tabs-style-3 .tabs-nav li a {
   -webkit-border-radius: 4px;
@@ -3592,7 +3637,7 @@ img {
   border-top: 1px dotted rgba(0, 0, 0, .2);
   color: rgba(0, 0, 0, .25);
   padding: 10px 0 5px 0;
-  font-size: 10px;
+  font-size: 11px;
 
   &:hover {
     color: #777;
