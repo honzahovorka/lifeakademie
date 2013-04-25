@@ -3,9 +3,9 @@ LifeakademieCz::Application.routes.draw do
   resources :users
 
   match '/prihlasit' => 'sessions#new', via: :get
-  match '/odhlasit' => 'sessions#destroy', via: :get
+  match '/odhlasit' => 'sessions#destroy', via: :get, as: 'logout'
 
-  match '/prihlasit' => 'sessions#create', via: :post
+  match '/prihlasit' => 'sessions#create', via: :post, as: 'login'
 
   match '/kurzy(/:subpage)' => 'pages#courses', via: :get, as: 'courses'
   match '/terminy(/:location)' => 'pages#dates', via: :get, as: 'dates'

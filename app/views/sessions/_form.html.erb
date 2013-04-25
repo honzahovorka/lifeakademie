@@ -18,6 +18,15 @@
   </div>
 
   <div class="row">
+    <div class="four columns r label">
+      <%= label_tag :remember_me, 'Pamatovat si přihlášení:' %>
+    </div>
+    <div class="nine columns">
+      <%= check_box_tag :remember_me, params[:remember_me], placeholder: 'Heslo' %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="four columns">&nbsp;</div>
     <div class="nine columns">
       <button class="button default small" type="submit">Přihlásit</button>

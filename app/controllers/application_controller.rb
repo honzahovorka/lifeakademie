@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if cookies[:remember_me_id] and cookies[:remember_me_code] and User.find(cookies[:remember_me_id]) and User.find(cookies[:remember_me_id]).remember_me_code == cookies[:remember_me_code]
       @current_user ||= User.find(cookies[:remember_me_id])
     else
-      @current_user ||= User.find(session[:user_id]) if session[:current_id]
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   end
 end

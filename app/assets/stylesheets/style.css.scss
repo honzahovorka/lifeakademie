@@ -391,14 +391,14 @@ blockquote p {
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
-     -moz-box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
-          box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
-  -webkit-transition: all .25s linear;
-     -moz-transition: all .25s linear;
-      -ms-transition: all .25s linear;
-       -o-transition: all .25s linear;
-          transition: all .25s linear;
+     -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
+        -moz-box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
+             box-shadow: 2px 2px 1px rgba(0,0,0,.17), -1px -1px 0 rgba(0,0,0,.05);
+     -webkit-transition: all .25s linear;
+        -moz-transition: all .25s linear;
+         -ms-transition: all .25s linear;
+          -o-transition: all .25s linear;
+             transition: all .25s linear;
 }
 #gallery .bordered,
 .pics-wrapper .bordered,
@@ -987,6 +987,22 @@ label.required {
   }
 }
 
+.ui-datepicker {
+}
+
+.ui-widget {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+}
+
+.ui-widget-content {
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #777;
+}
+
+.ui-widget-header {
+  color: #777;
+}
+
 .ui-state-default {
   display: block;
   padding: 3px 5px;
@@ -999,6 +1015,7 @@ label.required {
   line-height: 33px;
   display: inline-block;
   border: 1px solid transparent;
+
   span {
     vertical-align: middle;
     margin: 8px;
@@ -1227,8 +1244,8 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
 }
 
 .info:before {background-position: 0 0;}
-.success:before {background-position: 0 -16px;}
 .notice:before {background-position: 0 -32px;}
+.notice:before, .success:before {background-position: 0 -16px;}
 .error:before {background-position: 0 -48px;}
 .alert:before {background-position: 0 -48px;}
 
@@ -1244,14 +1261,6 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
 
 .ie8 .info {background-color: #c6dde2;}
 
-.success {
-  border-color: #aac590;
-  background-color: rgba(125,203,49,.2);
-  color: #79985b;
-}
-
-.ie8 .success {background-color: #d8e1bc;}
-
 .notice {
   border-color: #d4c088;
   background-color: rgba(253,190,15,.2);
@@ -1260,22 +1269,106 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
 
 .ie8 .notice {background-color: #f3dfb7;}
 
+.notice,
+.success {
+  border-color: #aac590;
+  background-color: rgba(125,203,49,.2);
+  color: #79985b;
+}
+
+.ie8 .notice {background-color: #d8e1bc;}
+.ie8 .success {background-color: #d8e1bc;}
+
+
 .alert,
 .error {
   border-color: #e7959f;
-  background-color: rgba(236,33,57,.2);
   color: #b76973;
 }
 
 .ie8 .error {background-color: #efc5be;}
 .ie8 .alert {background-color: #efc5be;}
 
+#notifications-bar {
+  position: relative;
+  left: 0;
+  height: auto;
+  cursor: pointer;
+
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .35);
+     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .35);
+          box-shadow: 0 0 5px rgba(0, 0, 0, .35);
+
+  .info,
+  .success,
+  .notice,
+  .alert,
+  .error {
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    -webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+            border-radius: 0px;
+  }
+
+  .notice {
+    margin: 0;
+  }
+
+  .alert,
+  .error {
+    background-color: #ffd3d7;
+
+    &:hover {
+      background-color: darken(#ffd3d7, 5%);
+    }
+  }
+
+  .success,
+  .notice {
+    background-color: lighten(#cfeb16, 25%);
+
+    &:hover {
+      background-color: lighten(#cfeb16, 15%);
+    }
+  }
+
+  .alert:hover,
+  .error:hover,
+  .notice:hover,
+  .success:hover {
+    -webkit-transition: background-color .25s linear;
+       -moz-transition: background-color .25s linear;
+        -ms-transition: background-color .25s linear;
+         -o-transition: background-color .25s linear;
+            transition: background-color .25s linear;
+  }
+
+  .notice:before {
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* User bar
+/* ---------------------------------------------------------------------- */
+
+#user-bar {
+  font-size: 10px;
+  line-height: 26px;
+  height: 26px;
+  text-align: right;
+}
+
 /* ---------------------------------------------------------------------- */
 /* Header
 /* ---------------------------------------------------------------------- */
 
 header {
-  position: relative;
   padding: 15px 0 0;
   background-color: #373533;
   background-color: #cfeb16;
@@ -3647,4 +3740,8 @@ img {
          -o-transition: color .2s ease;
             transition: color .2s ease;
   }
+}
+
+.hidden {
+  display: none;
 }
