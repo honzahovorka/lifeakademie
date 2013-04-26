@@ -1,4 +1,6 @@
 LifeakademieCz::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   match '/registrace' => 'users#new', via: :get, as: 'register'
   resources :users
 
