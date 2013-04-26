@@ -17,10 +17,7 @@ $ ->
 $(document).ready ->
   notifications = $('body').find($('.flash_notification'))
   if notifications.length > 0
-    bar = $("<ul id=\"notifications-bar\"></ul>")
-    bar.css(
-      width: "#{$(document).width()}px"
-    )
+    bar = $("<ul id=\"notifications-bar\" class=\"container\"></ul>")
 
     $.each notifications, (key, value) ->
       $(this).hide()
@@ -39,9 +36,6 @@ $(document).ready ->
       msg = $('<div></div>')
       msg.css(
         position: 'relative'
-        display: 'block'
-        width: '960px'
-        margin: '0 auto'
         'text-align': 'center'
       )
       msg.html($(this).html())

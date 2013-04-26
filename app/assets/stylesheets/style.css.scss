@@ -1282,6 +1282,7 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
 
 .alert,
 .error {
+  background-color: rgba(236,33,57,.2);
   border-color: #e7959f;
   color: #b76973;
 }
@@ -1291,6 +1292,7 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
 
 #notifications-bar {
   position: relative;
+  width: 100%;
   left: 0;
   height: auto;
   cursor: pointer;
@@ -1298,6 +1300,23 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
      -moz-box-shadow: 0 0 15px rgba(0, 0, 0, .15);
           box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+
+  .info:before,
+  .success:before,
+  .notice:before,
+  .alert:before,
+  .error:before {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    display: block;
+    width: 34px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-image: image-url('layout/icons/notifications-34x30.png');
+    content: '';
+    margin-top: -15px;
+  }
 
   .info,
   .success,
@@ -1349,7 +1368,12 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
             transition: background-color .25s linear;
   }
 
-  .notice:before {
+  .notice:before, .success:before {
+    background-position: 0 0;
+  }
+
+  .alert:before, .error:before {
+    background-position: 0 -30px;
   }
 }
 
