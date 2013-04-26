@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password_hash, :password_salt, :surname, :password, :password_confirmation, :street, :city, :postal_code, :date_of_birth, :place_of_birth, :billing_street, :billing_city, :company, :billing_postal_code, :company, :ic, :dic
 
-  attr_accessor :password, :full_name
+  attr_accessor :password, :full_name, :course_interest
 
   before_save :encrypt_password
 

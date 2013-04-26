@@ -1,5 +1,5 @@
 LifeakademieCz::Application.routes.draw do
-  match '/registrace' => 'users#new', via: :get
+  match '/registrace' => 'users#new', via: :get, as: 'register'
   resources :users
 
   match '/prihlasit' => 'sessions#new', via: :get

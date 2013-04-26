@@ -1,9 +1,9 @@
 <div id="user-bar">
   <div class="container">
   <% if current_user %>
-    Přihlášen uživatel <b><%= current_user.full_name %></b> | <%= link_to 'Odhlásit', logout_path %>
+    Přihlášen uživatel <b><%= current_user.full_name %></b> | <%= link_to 'Odhlásit se', logout_path %>
   <% else %>
-    <%= link_to 'Přihlásit', login_path %>
+    <%= link_to 'Přihlásit se', login_path %> | <%= link_to 'Registrace', register_path %>
   <% end %>
   </div>
 </div>
