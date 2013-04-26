@@ -32,6 +32,7 @@ end
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 
+gem "paperclip", "~> 3.0"
 gem 'ckeditor'
 
 # JavasScript libs
