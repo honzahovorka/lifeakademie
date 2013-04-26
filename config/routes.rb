@@ -3,6 +3,7 @@ LifeakademieCz::Application.routes.draw do
 
   match '/registrace' => 'users#new', via: :get, as: 'register'
   resources :users
+  match '/registrace/:user_id/dokoncit/:hash' => 'users#confirm', via: :get, as: 'confirm_registration'
 
   match '/prihlasit' => 'sessions#new', via: :get
   match '/odhlasit' => 'sessions#destroy', via: :get, as: 'logout'

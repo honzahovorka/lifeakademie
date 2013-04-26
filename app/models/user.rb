@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password_hash, :password_salt, :surname, :password, :password_confirmation, :street, :city, :postal_code, :date_of_birth, :place_of_birth, :billing_street, :billing_city, :company, :billing_postal_code, :company, :ic, :dic
+  attr_accessible :email, :name, :password_hash, :password_salt, :surname, :password, :password_confirmation, :street, :city, :postal_code, :date_of_birth, :place_of_birth, :billing_street, :billing_city, :company, :billing_postal_code, :company, :ic, :dic, :course_interest
 
   attr_accessor :password, :full_name, :course_interest
 
   before_save :encrypt_password
+  before_create :generate_confirmation_hash
 
   validates_presence_of :email, :name, :surname, :password
+  validates_uniqueness_of :email
   validates_confirmation_of :password, :message => "se neshoduje s potvrzením hesla"
 
   def confirmed?
@@ -27,7 +29,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def confirm_email!
+    self.update_attribute(:email_confirmed, true)
+    self.update_attribute(:email_confirmation_hash, nil)
+  end
+
   private
+
+  def generate_confirmation_hash
+    self.email_confirmation_hash = SecureRandom.hex(10)
+  end
 
   def encrypt_password
     if password.present?
