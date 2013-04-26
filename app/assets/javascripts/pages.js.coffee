@@ -33,12 +33,7 @@ $(document).ready ->
         'margin-bottom': "-#{(key+1)*41}px"
       })
 
-      msg = $('<div></div>')
-      msg.css(
-        position: 'relative'
-        'text-align': 'center'
-      )
-      msg.html($(this).html())
+      notification.html($(this).html())
 
       notification.click ->
         bar.animate({
@@ -47,7 +42,6 @@ $(document).ready ->
           notification.remove()
         )
 
-      msg.appendTo(notification)
 
     bar.delay(400).animate({
       'top': "#{bar.height()}"

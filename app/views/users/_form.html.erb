@@ -73,7 +73,7 @@
         <%= f.label :surname, 'Mám zájem o kurz: ' %>
       </div>
       <div class="eleven columns">
-        <%= f.select :course_interest, options_for_select([['Zatím nemám zájem o kurz', 0], ['Kurz', 1]]) %>
+        <%= f.select :course_interest, options_for_select(@courses.map{ |c| [c.name_with_date, c.id]}), prompt: 'Zatím nemám zájem o konkrétní kurz' %>
       </div>
     </div>
 

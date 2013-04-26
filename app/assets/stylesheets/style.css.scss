@@ -1375,6 +1375,10 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
   .alert:before, .error:before {
     background-position: 0 -30px;
   }
+
+  li {
+    text-align: center;
+  }
 }
 
 /* ---------------------------------------------------------------------- */

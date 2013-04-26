@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :get_courses, only: [:new, :create]
   # GET /registrace
   def new
     @user = User.new
@@ -27,5 +28,11 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, alert: "Aktivace se nezdařila!"
     end
+  end
+
+  private
+
+  def get_courses
+    @courses = Course.find(:all, conditions: { available: true })
   end
 end
