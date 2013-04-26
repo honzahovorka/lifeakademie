@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+
   before_filter :get_courses, only: [:new, :create]
+
   # GET /registrace
   def new
     @user = User.new

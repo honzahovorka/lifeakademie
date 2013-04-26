@@ -17,7 +17,7 @@ $ ->
 $(document).ready ->
   notifications = $('body').find($('.flash_notification'))
   if notifications.length > 0
-    bar = $("<ul id=\"notifications-bar\" class=\"container\"></ul>")
+    bar = $('<ul id="notifications-bar" class="container"></ul>')
 
     $.each notifications, (key, value) ->
       $(this).hide()

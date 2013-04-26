@@ -10,6 +10,8 @@ LifeakademieCz::Application.routes.draw do
 
   match '/prihlasit' => 'sessions#create', via: :post, as: 'login'
 
+  match '/nastenka' => 'dashboard#index', via: :get, as: 'dashboard'
+
   match '/kurzy(/:subpage)' => 'pages#courses', via: :get, as: 'courses'
   match '/terminy(/:location)' => 'pages#dates', via: :get, as: 'dates'
   match '/o-nas' => 'pages#about', via: :get, as: 'about'
