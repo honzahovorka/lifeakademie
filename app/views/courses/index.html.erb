@@ -1,2 +1,32 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<% title 'Termíny' %>
+<section class="main container">
+  <div class="breadcrumbs">
+    <a href="/">LifeAkademie.cz</a>
+    Termíny
+  </div>
+
+  <section class="sixteen columns">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Název</th>
+          <th>Město</th>
+          <th>Začátek</th>
+          <th>Cena</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= course.city %></td>
+          <td><%= I18n.localize(course.start_date) %></td>
+          <td><%= number_to_currency course.price %></td>
+          <td><%= link_to 'Přihlásit se', '#' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</section>

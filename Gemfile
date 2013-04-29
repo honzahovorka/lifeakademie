@@ -14,6 +14,14 @@ group :test do
   gem 'capybara'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate'
+  gem 'quiet_assets'
+  gem 'rack-mini-profiler'
+end
+
 group :production do
   gem 'pg'
 end

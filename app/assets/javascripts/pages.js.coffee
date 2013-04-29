@@ -8,7 +8,6 @@ $ ->
     $(".box-toggle").on "click", ".trigger", (e) ->
       self = $(e.target)
       self.toggleClass("active").next().stop(true, true).slideToggle "slow"
-      #    $.fn.autoload();
       e.preventDefault()
 
 $ ->
@@ -43,7 +42,7 @@ $(document).ready ->
         )
 
 
-    bar.delay(400).animate({
+    bar.delay(500).animate({
       'top': "#{bar.height()}"
       'margin-bottom': 0
     }, 'fast')
