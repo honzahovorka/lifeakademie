@@ -137,18 +137,22 @@ table {
 dt,dd {display: inline-block;}
 
 a {
-  margin:0;
-  padding:0;
-  font-size:100%;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
   outline: none;
-  text-decoration:none;
-  background:transparent;
-  vertical-align:baseline;
+  text-decoration: underline;
+  background: transparent;
+  vertical-align: baseline;
 }
 
 a, a > * {
   color: #847460;
-  text-decoration: none;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .not-ie a, .not-ie a > * {
@@ -1434,6 +1438,10 @@ header .container { z-index: 2;}
   border-width: 1px;
   border-style: solid;
   border-color: #DAD5C9;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .navigation {

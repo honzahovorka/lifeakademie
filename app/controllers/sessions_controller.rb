@@ -13,7 +13,11 @@ class SessionsController < ApplicationController
       end
       session[:user_id] = user.id
 
-      redirect_to root_path, notice: 'Uživatel úspěšně přihlášen'
+      if session[:return_to].present?
+        redirect_to session[:return_to], notice: 'Uživatel úspěšně přihlášen'
+      else
+        redirect_to root_path, notice: 'Uživatel úspěšně přihlášen'
+      end
     else
       flash.now.alert = 'Nesprávný email nebo heslo!'
       render 'new'
@@ -25,6 +29,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     cookies.delete :remember_me_id if cookies[:remember_me_id]
 
-    redirect_to root_path, notice: 'Uživatel úspěšně odhlášen'
+    if session[:return_to].present?
+      redirect_to session[:return_to], notice: 'Uživatel úspěšně odhlášen'
+    else
+      redirect_to root_path, notice: 'Uživatel úspěšně odhlášen'
+    end
   end
 end
