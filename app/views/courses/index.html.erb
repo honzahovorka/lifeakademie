@@ -19,7 +19,7 @@
       <tbody>
         <% @courses.each do |course| %>
         <tr>
-          <td><%= course.name %></td>
+          <td><%= link_to course.name, course_path(course), title: 'Informace o kurzu' %></td>
           <td><%= course.city %></td>
           <td><%= I18n.localize(course.start_date) %></td>
           <td><%= number_to_currency course.price %></td>
