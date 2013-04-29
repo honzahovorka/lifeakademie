@@ -27,6 +27,7 @@
 #  email_confirmation_hash :string(255)
 #  password_reset_hash     :string(255)
 #  password_reseted_at     :datetime
+#  role                    :string(255)      default("user")
 #
 
 require 'spec_helper'

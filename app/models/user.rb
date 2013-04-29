@@ -27,6 +27,7 @@
 #  email_confirmation_hash :string(255)
 #  password_reset_hash     :string(255)
 #  password_reseted_at     :datetime
+#  role                    :string(255)      default("user")
 #
 
 class User < ActiveRecord::Base
@@ -49,6 +50,10 @@ class User < ActiveRecord::Base
 
   def confirmed?
     email_confirmed
+  end
+
+  def is_editor?
+    role == 'editor'
   end
 
   def full_name
