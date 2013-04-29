@@ -24,3 +24,8 @@
   <div class="two columns">Poznámka:</div>
   <div class="fourteen columns"><%= @course.note %></div>
 </div>
+
+<div class="row">
+  <div class="two columns">Cena:</div>
+  <div class="fourteen columns"><%= number_to_currency @course.price %></div>
+</div>
