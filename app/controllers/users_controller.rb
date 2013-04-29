@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :get_courses, only: [:new, :create]
+  before_filter :check_authentication, only: [:complete_registration]
 
   # GET /registrace
   def new
@@ -29,6 +30,28 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "Registrace byla úspěšně dokončena. Nyní se můžete <a href=\"/prihlasit\">přihlásit</a>.".html_safe
     else
       redirect_to root_path, alert: "Aktivace se nezdařila!"
+    end
+  end
+
+  # GET /registrace/doplneni
+  def complete_registration
+    @user = current_user
+  end
+
+  # PUT /users
+  def update
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        if session[:return_to].present?
+          format.html { redirect_to session[:return_to], notice: 'Údaje úspěšně uloženy' }
+        else
+          format.html { redirect_to root_path, notice: 'Údaje úspěšně uloženy' }
+        end
+      else
+        format.html { render 'complete_registration' }
+      end
     end
   end
 

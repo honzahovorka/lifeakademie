@@ -230,7 +230,17 @@ end
           :email => "E-mail",
           :password => "Heslo",
           :name => "Jméno",
-          :surname => "Příjmení"
+          :surname => "Příjmení",
+          :street => "Ulice",
+          :city => "Město",
+          :postal_code => "PSČ",
+          :date_of_birth => "Datum narození",
+          :place_of_birth => "Místo narození",
+          :billing_street => "Ulice",
+          :billing_city => "Město",
+          :billing_postal_code => "PSČ",
+          :ic => "IČ",
+          :dic => "DIČ"
         }
       }
     }

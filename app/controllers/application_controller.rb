@@ -16,8 +16,12 @@ class ApplicationController < ActionController::Base
 
   def return_to
     except_urls = %w(/prihlasit /admin/prihlasit /sessions /odhlasit)
-    if !(except_urls.include?(request.path) || request.path.include?('ajax') || request.path.include?('reset-hesla'))
+    if !(except_urls.include?(request.path) || request.path.include?('ajax') || request.path.include?('reset-hesla') || request.path.include?('users') || request.path.include?('registrace'))
       session[:return_to] = request.path
     end
+  end
+
+  def check_authentication
+    redirect_to login_path, alert: 'Nejprve se musíte přihlásit' if current_user.nil?
   end
 end

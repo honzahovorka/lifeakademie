@@ -37,16 +37,19 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password_hash,
     :password_salt, :surname, :password, :password_confirmation, :street, :city,
     :postal_code, :date_of_birth, :place_of_birth, :billing_street, :billing_city,
-    :company, :billing_postal_code, :company, :ic, :dic, :course_interest
+    :company, :billing_postal_code, :company, :ic, :dic, :course_interest, :form
 
-  attr_accessor :password, :full_name, :course_interest
+  attr_accessor :password, :full_name, :course_interest, :form
 
   before_save :encrypt_password
   before_create :generate_confirmation_hash
 
-  validates_presence_of :email, :name, :surname, :password
+  validates_presence_of :email, :name, :surname
   validates_uniqueness_of :email
   validates_confirmation_of :password, :message => "se neshoduje s potvrzením hesla"
+
+  validates_presence_of :password, unless: :is_from_complete_registration?
+  validates_presence_of [:street, :city, :postal_code, :date_of_birth, :place_of_birth], if: :is_from_complete_registration?
 
   def confirmed?
     email_confirmed
@@ -54,6 +57,10 @@ class User < ActiveRecord::Base
 
   def is_editor?
     role == 'editor'
+  end
+
+  def is_eligible?
+    street.present? and city.present? and postal_code.present? and place_of_birth.present? and date_of_birth.present?
   end
 
   def full_name
@@ -87,5 +94,9 @@ class User < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+
+  def is_from_complete_registration?
+    self.form == 'complete_registration'
   end
 end

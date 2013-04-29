@@ -1,0 +1,133 @@
+<%= form_for @user, url: user_path(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <div id="form_errors_explanation" class="alert">
+          <p><strong>Registrace nebyla úspěšná. Vyskytly se tyto chyby:</strong></p>
+          <ul class="list">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Údaje na certifikát</legend>
+    <div class="row">
+      <%= f.hidden_field :form, value: 'complete_registration' %>
+      <div class="four columns r label">
+        <%= f.label :date_of_birth, 'Datum narození: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :date_of_birth, placeholder: 'dd.mm.yyyy', class: 'datepicker' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :place_of_birth, 'Místo narození: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :place_of_birth, placeholder: 'Místo narození' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Adresa bydliště</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :street, 'Ulice: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :street, placeholder: 'Ulice' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :city, 'Město: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :city, placeholder: 'Město' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :postal_code, 'PSČ: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :postal_code, placeholder: 'PSČ' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fakturační údaje</legend>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <p>Ponechte prázdné pokud je fakturační adresa totožná s adresou bydliště.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :company, 'Firma: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :company, placeholder: 'Firma' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_street, 'Ulice: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_street, placeholder: 'Ulice' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_city, 'Město: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_city, placeholder: 'Město' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :billing_postal_code, 'PSČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :billing_postal_code, placeholder: 'PSČ' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :ic, 'IČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :ic, placeholder: 'IČ' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :dic, 'DIČ: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :dic, placeholder: 'DIČ' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="nine columns">
+        <button class="button lightgreen small" type="submit">Odeslat</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

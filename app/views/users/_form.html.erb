@@ -70,7 +70,7 @@
 
     <div class="row">
       <div class="four columns r label">
-        <%= f.label :surname, 'Mám zájem o kurz: ' %>
+        <%= f.label :course_interest, 'Mám zájem o kurz: ' %>
       </div>
       <div class="eleven columns">
         <%= f.select :course_interest, options_for_select(@courses.map{ |c| [c.name_with_date, c.id]}), prompt: 'Zatím nemám zájem o konkrétní kurz' %>
