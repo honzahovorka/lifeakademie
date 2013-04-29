@@ -8,5 +8,11 @@
 
   <section class="main container">
     <h3><%= "Přihlášení do kurzu: #{@course.name_with_date}" %></h3>
+
+    <div class="row">
+      <div class="sixteen columns">
+        <p class="c"><%= link_to 'Odeslat závaznou objednávku', course_reservation_confirmed_path(@course), class: 'button small lightgreen', confirm: 'Opravdu chcete odeslat závaznou objednávku?' %></p>
+      </div>
+    </div>
   </section>
 </section>

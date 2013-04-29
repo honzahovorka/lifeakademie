@@ -20,6 +20,7 @@ group :development do
   gem 'annotate'
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
+  gem 'pry-rails'
 end
 
 group :production do

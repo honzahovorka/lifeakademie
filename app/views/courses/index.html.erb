@@ -23,7 +23,17 @@
           <td><%= course.city %></td>
           <td><%= I18n.localize(course.start_date) %></td>
           <td><%= number_to_currency course.price %></td>
-          <td><%= link_to 'Přihlásit se do kurzu', course_reservation_path(course) %></td>
+          <td>
+            <% if current_user %>
+              <% if user_ordered_course?(current_user, course.id) %>
+                Registrovaný kurz
+              <% else %>
+                <%= link_to 'Přihlásit se do kurzu', course_reservation_path(course) %>
+              <% end %>
+            <% else %>
+              <%= link_to 'Přihlásit se do kurzu', course_reservation_path(course) %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>

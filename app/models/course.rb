@@ -20,6 +20,8 @@ class Course < ActiveRecord::Base
 
   attr_accessor :name_with_date
 
+  has_many :orders
+
   def name_with_date
     "#{name} - #{I18n.localize(start_date)}"
   end
