@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
+  include CoursesHelper
 
-  before_filter :check_authentication, only: [:reserve, :confirmation]
-  before_filter :check_eligibility, only: [:reserve, :confirmation]
+  before_filter :check_authentication, only: [:reserve, :finish_reservation]
+  before_filter :check_eligibility, only: [:reserve, :finish_reservation]
+  before_filter :check_user_orders, only: [:reserve, :finish_reservation]
 
   # GET /terminy(/:location)
   def index
@@ -29,5 +31,9 @@ class CoursesController < ApplicationController
 
   def check_eligibility
     redirect_to complete_registration_path, alert: 'Musíte doplnit všechny údaje potřebné k přihlášení do kurzu.' if ! current_user.is_eligible?
+  end
+
+  def check_user_orders
+    redirect_to dates_path, alert: 'Na tento kurz již máte vytvořenou registraci.' if user_ordered_course?(current_user.id, params[:id])
   end
 end
