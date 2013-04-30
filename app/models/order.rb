@@ -29,6 +29,7 @@ class Order < ActiveRecord::Base
     paid
   end
 
+  # Set order as payed and update paid_at time
   def pay!
     self.update_attribute(:paid, true)
     self.update_attribute(:paid_at, DateTime.now)

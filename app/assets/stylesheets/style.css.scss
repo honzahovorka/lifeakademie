@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: unlimited-color-variations, one-column, two-columns, left-sidebar, right-sidebar, fixed-width, flexible-width, custom-background, four-different-sliders, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, post-formats, theme-options, visual-shortcodes, translation-ready
 */
 
-/* ---------------------- 
+/* ----------------------
 Stylesheet Guide
 -------------------------
 
@@ -3022,7 +3022,7 @@ footer .widget_contact_form label { display: block; }
   border-style: solid;
   border-color: transparent;
   background-color: #918f89;
-  background-image: url('layout/icons/back-to-top.png');
+  background-image: image-url('layout/icons/back-to-top.png');
   background-position: center center;
   background-repeat: no-repeat;
   text-indent: -9999px;
@@ -3781,4 +3781,12 @@ img {
 
 .l, .left {
   text-align: left !important;
+}
+
+.admin header {
+  background: none;
+
+  h1 {
+    padding-top: 60px;
+  }
 }

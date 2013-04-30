@@ -22,5 +22,9 @@ LifeakademieCz::Application.routes.draw do
   match '/o-nas' => 'pages#about', via: :get, as: 'about'
   match '/kontakt' => 'pages#contact', via: :get, as: 'contact'
 
+  scope '/admin' do
+    match '/kurz/novy' => 'courses#new', via: :get, as: 'admin_new_course'
+  end
+
   root to: 'pages#main'
 end

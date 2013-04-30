@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 9]>                  <html class="ie9 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html,audio/mpeg; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Administrace | lifeakademie.cz</title>
+
+    <%= stylesheet_link_tag    :application, :media => :all %>
+    <%= javascript_include_tag :modernizr %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="admin">
+
+    <!-- user bar -->
+    <%= render 'layouts/shared/user_bar' %>
+
+    <%= render 'layouts/shared/admin/header' %>
+
+    <section class="container main">
+      <%= yield %>
+    </section>
+
+    <%= javascript_include_tag :application %>
+  <body>
+</html>

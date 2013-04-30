@@ -21,6 +21,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'pry-rails'
+  gem 'awesome_print'
 end
 
 group :production do
