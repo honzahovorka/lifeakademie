@@ -1,0 +1,78 @@
+<% title 'Profil uživatele' %>
+
+<section class="main container">
+  <div class="breadcrumbs">
+    <a href="/">LifeAkademie.cz</a>
+    Profil uživatele
+  </div>
+
+  <section>
+    <div class="row">
+      <div class="sixteen columns">
+        <h2><%= @user.full_name %></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">Místo narození:</div>
+      <div class="twelve columns"><%= @user.place_of_birth %></div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">Datum narození:</div>
+      <div class="twelve columns"><%= I18n.localize @user.date_of_birth %></div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">E-mail:</div>
+      <div class="twelve columns"><%= @user.email %></div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">Ulice:</div>
+      <div class="twelve columns"><%= @user.street %></div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">Město:</div>
+      <div class="twelve columns"><%= @user.city %></div>
+    </div>
+
+    <div class="row">
+      <div class="four columns">PSČ:</div>
+      <div class="twelve columns"><%= @user.postal_code %></div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="sixteen columns">
+        <h3>Objednávky</h3>
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th class="center">#</th>
+              <th>Název</th>
+              <th>Začátek</th>
+              <th>Objednáno</th>
+              <th>Zaplaceno</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.orders.each do |order| %>
+            <tr>
+              <td><%= order.variable_symbol %></td>
+              <td><%= order.course.name %></td>
+              <td><%= I18n.localize order.course.start_date %></td>
+              <td><%= I18n.localize order.created_at, format: :long %></td>
+              <td><%= order.is_paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
+              <td><%= link_to 'Detail', '#' %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</section>

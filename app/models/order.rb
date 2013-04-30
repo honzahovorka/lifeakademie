@@ -24,4 +24,14 @@ class Order < ActiveRecord::Base
     self.update_attribute(:variable_symbol, vs)
     self.save
   end
+
+  def is_paid?
+    paid
+  end
+
+  def pay!
+    self.update_attribute(:paid, true)
+    self.update_attribute(:paid_at, DateTime.now)
+    self.save
+  end
 end

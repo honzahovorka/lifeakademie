@@ -10,6 +10,8 @@ LifeakademieCz::Application.routes.draw do
   match '/odhlasit' => 'sessions#destroy', via: :get, as: 'logout'
   match '/prihlasit' => 'sessions#create', via: :post
 
+  match '/profil' => 'users#profile', via: :get, as: 'profile'
+
   match '/nastenka' => 'dashboard#index', via: :get, as: 'dashboard'
 
   match '/kurzy(/:subpage)' => 'pages#courses', via: :get, as: 'courses'

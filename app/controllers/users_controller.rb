@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :get_courses, only: [:new, :create]
-  before_filter :check_authentication, only: [:complete_registration]
+  before_filter :check_authentication, only: [:complete_registration, :profile]
 
   # GET /registrace
   def new
@@ -53,6 +53,11 @@ class UsersController < ApplicationController
         format.html { render 'complete_registration' }
       end
     end
+  end
+
+  # GET /profil
+  def profile
+    @user = User.find(current_user)
   end
 
   private

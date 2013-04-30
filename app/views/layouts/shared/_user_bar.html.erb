@@ -1,7 +1,7 @@
 <div id="user-bar">
   <div class="container">
     <% if current_user %>
-      Přihlášen uživatel <b><%= current_user.full_name %></b> | <%= link_to 'Nástěnka', dashboard_path %><% if current_user.is_editor? %> | <%= link_to 'Administrace', '#' %><% end %> | <%= link_to 'Odhlásit se', logout_path %>
+      Přihlášen uživatel <b><%= link_to current_user.full_name, profile_path %></b> | <%= link_to 'Nástěnka', dashboard_path %><% if current_user.is_editor? %> | <%= link_to 'Administrace', '#' %><% end %> | <%= link_to 'Odhlásit se', logout_path %>
     <% else %>
       <%= link_to 'Přihlásit se', login_path %> | <%= link_to 'Registrace', register_path %>
     <% end %>
