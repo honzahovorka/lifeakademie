@@ -291,17 +291,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
-.r, .right {
-  text-align: right;
-}
-
-.c, .center {
-  text-align: center;
-}
-
-.l, .left {
-  text-align: left;
-}
 
 blockquote {
   margin-bottom: 20px !important;
@@ -3780,4 +3769,16 @@ img {
 
 .hidden {
   display: none;
+}
+
+.r, .right {
+  text-align: right !important;
+}
+
+.c, .center {
+  text-align: center !important;
+}
+
+.l, .left {
+  text-align: left !important;
 }

@@ -20,7 +20,7 @@
 
     <div class="row">
       <div class="four columns">Datum narození:</div>
-      <div class="twelve columns"><%= I18n.localize @user.date_of_birth %></div>
+      <div class="twelve columns"><%= I18n.localize @user.date_of_birth if @user.date_of_birth.present? %></div>
     </div>
 
     <div class="row">
@@ -51,7 +51,7 @@
         <table class="custom-table">
           <thead>
             <tr>
-              <th class="center">#</th>
+              <th class="c">#</th>
               <th>Název</th>
               <th>Začátek</th>
               <th>Objednáno</th>
@@ -62,12 +62,12 @@
           <tbody>
             <% @user.orders.each do |order| %>
             <tr>
-              <td><%= order.variable_symbol %></td>
+              <td class="c"><%= order.variable_symbol %></td>
               <td><%= order.course.name %></td>
               <td><%= I18n.localize order.course.start_date %></td>
               <td><%= I18n.localize order.created_at, format: :long %></td>
               <td><%= order.is_paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
-              <td><%= link_to 'Detail', '#' %></td>
+              <td class="c"><%= link_to 'Detail', '#' %></td>
             </tr>
             <% end %>
           </tbody>
