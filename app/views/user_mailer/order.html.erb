@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Potvrzení objednávky č. <%= @order.variable_symbol %> na lifeakademie.cz</title>
+  </head>
+  <body>
+    <p>
+      Dobrý den,<br>
+      Potvrzujeme přijetí Vaší objednávky kurzu na webu <a href="">lifeakademie.cz</a>.
+    </p>
+
+    <p>
+      Objednávku prosím zaplaťte na účet <b>123456789/0000</b> s variabilní symbolem <b><%= @order.variable_symbol %></b>
+    </p>
+
+    <p>
+      Děkujeme!
+    </p>
+
+  </body>
+</html>

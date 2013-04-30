@@ -16,4 +16,12 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
   attr_accessible :paid, :paid_at, :variable_symbol
+
+  after_create :generate_variable_symbol!
+
+  def generate_variable_symbol!
+    vs = "%08d" % self.id
+    self.update_attribute(:variable_symbol, vs)
+    self.save
+  end
 end

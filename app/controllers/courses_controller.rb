@@ -26,9 +26,13 @@ class CoursesController < ApplicationController
 
     @order = @course.orders.build
     @order.user = current_user
-    @order.save
 
-    redirect_to dates_path, notice: "Registrace byla úspěšně ukončena. Na Vaší emailovou adresu (#{current_user.email}) byl odeslán email s potvrzením."
+    if @order.save
+      UserMailer.order(@order).deliver
+      redirect_to dates_path, notice: "Registrace byla úspěšně ukončena. Na Vaší emailovou adresu (#{current_user.email}) byl odeslán email s potvrzením."
+    else
+      redirect_to course_reservation_path(@course), alert: "Registrace se nezdařila. Prosím, zopakujte registraci za chvíli."
+    end
   end
 
   private
