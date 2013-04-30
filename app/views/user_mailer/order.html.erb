@@ -10,7 +10,8 @@
     </p>
 
     <p>
-      Objednávku prosím zaplaťte na účet <b>123456789/0000</b> s variabilní symbolem <b><%= @order.variable_symbol %></b>
+      Objednaný kurz: <b><%= @order.course.name_with_date %></b><br>
+      Objednávku prosím zaplaťte na účet <b>123456789/0000</b> s variabilní symbolem <b><%= @order.variable_symbol %></b> částku <b><%= number_to_currency @order.course.price %></b>.
     </p>
 
     <p>
