@@ -247,7 +247,9 @@ end
           :start_date => "Začátek",
           :available => "Dostupnost",
           :note => "Poznámka",
-          :program => "Program"
+          :program => "Program",
+          :price => "Cena",
+          :city => "Město"
         }
       }
     }

@@ -1,4 +1,6 @@
 <section class="sixteen columns">
+  <h2>Kurzy</h2>
+
   <table class="custom-table">
     <thead>
       <tr>
@@ -16,9 +18,9 @@
         <td><%= course.city %></td>
         <td><%= I18n.localize(course.start_date) %></td>
         <td><%= number_to_currency course.price %></td>
-        <td class="c"><%= link_to 'Zobrazit', '#' %></td>
-        <td class="c"><%= link_to 'Upravit',  '#' %></td>
-        <td class="c"><%= link_to 'Smazat',   '#' %></td>
+        <td class="c"><%= link_to 'Zobrazit', admin_course_path(course) %></td>
+        <td class="c"><%= link_to 'Upravit',  admin_edit_course_path(course) %></td>
+        <td class="c"><%= link_to 'Smazat',   admin_course_path(course), method: :delete, confirm: 'Opravdu chcete smazat tento termín?' %></td>
       </tr>
       <% end %>
     </tbody>

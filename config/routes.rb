@@ -26,10 +26,13 @@ LifeakademieCz::Application.routes.draw do
     match '/' => 'dashboard#admin', via: :get, as: 'admin_dashboard'
     match '/kurz/vytvorit/novy' => 'courses#new', via: :get, as: 'admin_new_course'
     match '/kurz/:id' => 'courses#view', via: :get, as: 'admin_course'
+    match '/kurz/:id' => 'courses#destroy', via: :delete, as: 'admin_course'
+    match '/kurz/:id/upravit' => 'courses#edit', via: :get, as: 'admin_edit_course'
     match '/kurzy' => 'courses#list', via: :get, as: 'admin_courses'
   end
 
   match '/kurzy' => 'courses#create', via: :post
+  match '/terminy/:id' => 'courses#update', via: :put
 
   root to: 'pages#main'
 end

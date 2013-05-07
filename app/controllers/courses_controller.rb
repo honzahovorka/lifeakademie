@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   include CoursesHelper
 
-  layout 'admin', only: [:new, :create, :list, :view, :update, :edit, :delete]
+  layout 'admin', only: [:new, :create, :list, :view, :update, :edit, :destroy]
 
   before_filter :check_authentication,      except: [:index, :show]
   before_filter :check_editor_privileges,   only:   [:new, :list, :view, :create, :update, :edit, :delete]
@@ -24,6 +24,21 @@ class CoursesController < ApplicationController
     @course = Course.new
   end
 
+  # GET /admin/kurz/:id/upravit
+  def edit
+    @course = Course.find(params[:id])
+  end
+
+  # DELETE /admin/kurz/:id
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_courses_path, notice: 'Kurz úspěšně smazán' }
+    end
+  end
+
   # POST /kurzy
   def create
     @course = Course.new(params[:course])
@@ -33,6 +48,19 @@ class CoursesController < ApplicationController
         format.html { redirect_to admin_courses_path, notice: 'Kurz úspěšně vytvořen' }
       else
         format.html { render 'new' }
+      end
+    end
+  end
+
+  # PUT /terminy/:id
+  def update
+    @course = Course.find(params[:id])
+
+    respond_to do |format|
+      if @course.update_attributes(params[:course])
+        format.html { redirect_to admin_course_path(@course), notice: 'Kurz úspěšně upraven' }
+      else
+        format.html { render 'edit' }
       end
     end
   end

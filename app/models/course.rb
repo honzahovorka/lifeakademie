@@ -16,11 +16,11 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :available, :name, :note, :program, :start_date
+  attr_accessible :available, :name, :note, :program, :start_date, :price, :city
 
   attr_accessor :name_with_date
 
-  validates_presence_of :name, :start_date
+  validates_presence_of :name, :start_date, :price, :city
 
   has_many :orders
 
