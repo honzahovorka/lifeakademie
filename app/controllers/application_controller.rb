@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
   def check_authentication
     redirect_to login_path, alert: 'Nejprve se musíte přihlásit' if current_user.nil?
   end
+
+  def check_editor_privileges
+    redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup' unless current_user.is_editor?
+  end
 end

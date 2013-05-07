@@ -241,6 +241,13 @@ end
           :billing_postal_code => "PSČ",
           :ic => "IČ",
           :dic => "DIČ"
+        },
+        :course => {
+          :name => "Název",
+          :start_date => "Začátek",
+          :available => "Dostupnost",
+          :note => "Poznámka",
+          :program => "Program"
         }
       }
     }

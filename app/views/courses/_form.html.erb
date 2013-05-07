@@ -1,0 +1,85 @@
+<%= form_for @course do |f| %>
+  <% if @course.errors.any? %>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <div id="form_errors_explanation" class="alert">
+          <p><strong>Kurz se nepodařilo přidat. Vyskytly se tyto chyby:</strong></p>
+          <ul class="list">
+            <% @course.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Základní údaje</legend>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="eleven columns">
+        <p>Povinné údaje jsou označeny tučně a <span class="required">*</span></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :name, 'Název: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :start_date, 'Začátek: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :name, class: 'datepicker' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :available, 'Volný termín: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.check_box :available %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Doplňující údaje</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :program, 'Program: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_area :program, class: 'ckeditor' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :note, 'Poznámka: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_area :note, class: 'ckeditor' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="nine columns">
+        <button class="button lightgreen small" type="submit">Odeslat</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

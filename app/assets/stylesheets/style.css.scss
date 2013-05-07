@@ -3783,10 +3783,27 @@ img {
   text-align: left !important;
 }
 
-.admin header {
-  background: none;
+.admin {
+  header {
+    background: none;
 
-  h1 {
-    padding-top: 60px;
+    h1 {
+      padding-top: 60px;
+    }
+  }
+
+  nav {
+    margin: 3em 0 1em 0;
+
+    ul {
+      li {
+        display: inline-block;
+
+        a {
+          margin: 0 1em;
+        }
+      }
+    }
   }
 }
+

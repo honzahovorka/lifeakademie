@@ -20,6 +20,8 @@ class Course < ActiveRecord::Base
 
   attr_accessor :name_with_date
 
+  validates_presence_of :name, :start_date
+
   has_many :orders
 
   def name_with_date

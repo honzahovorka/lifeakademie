@@ -23,8 +23,13 @@ LifeakademieCz::Application.routes.draw do
   match '/kontakt' => 'pages#contact', via: :get, as: 'contact'
 
   scope '/admin' do
-    match '/kurz/novy' => 'courses#new', via: :get, as: 'admin_new_course'
+    match '/' => 'dashboard#admin', via: :get, as: 'admin_dashboard'
+    match '/kurz/vytvorit/novy' => 'courses#new', via: :get, as: 'admin_new_course'
+    match '/kurz/:id' => 'courses#view', via: :get, as: 'admin_course'
+    match '/kurzy' => 'courses#list', via: :get, as: 'admin_courses'
   end
+
+  match '/kurzy' => 'courses#create', via: :post
 
   root to: 'pages#main'
 end

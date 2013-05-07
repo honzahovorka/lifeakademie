@@ -1,12 +1,41 @@
 class CoursesController < ApplicationController
   include CoursesHelper
 
-  layout 'admin', only: [:new, :create, :update, :edit, :delete]
+  layout 'admin', only: [:new, :create, :list, :view, :update, :edit, :delete]
 
   before_filter :check_authentication,      except: [:index, :show]
-  before_filter :check_editor_privileges,   only: [:new, :create, :update, :edit, :delete]
-  before_filter :check_eligibility,         only: [:reserve, :finish_reservation]
-  before_filter :check_user_orders,         only: [:reserve, :finish_reservation]
+  before_filter :check_editor_privileges,   only:   [:new, :list, :view, :create, :update, :edit, :delete]
+  before_filter :check_eligibility,         only:   [:reserve, :finish_reservation]
+  before_filter :check_user_orders,         only:   [:reserve, :finish_reservation]
+
+
+  # GET /admin/kurzy
+  def list
+    @courses = Course.all
+  end
+
+  # GET /admin/kurz/:id
+  def view
+    @course = Course.find(params[:id])
+  end
+
+  # GET /admin/kurz/pridat/novy
+  def new
+    @course = Course.new
+  end
+
+  # POST /kurzy
+  def create
+    @course = Course.new(params[:course])
+
+    respond_to do |format|
+      if @course.save
+        format.html { redirect_to admin_courses_path, notice: 'Kurz úspěšně vytvořen' }
+      else
+        format.html { render 'new' }
+      end
+    end
+  end
 
   # GET /terminy(/:location)
   def index

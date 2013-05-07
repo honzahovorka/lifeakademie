@@ -1,14 +1,15 @@
 class DashboardController < ApplicationController
 
+  layout 'admin', only: [:admin]
+
   before_filter :check_authentication
+  before_filter :check_editor_privileges, only: [:admin]
 
   def index
   end
 
-  private
-
-  def check_authentication
-    redirect_to login_path, :alert => 'Nemáte oprávnění prohlížet si nástěnku. Nejprve se přihlašte.'.html_safe if current_user.nil?
+  # GET /admin
+  def admin
   end
 
 end
