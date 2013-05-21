@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :get_courses, only: [:new, :create]
-  before_filter :check_authentication, only: [:complete_registration, :profile]
+  before_filter :get_courses,           only: [:new, :create]
+  before_filter :check_authentication,  only: [:complete_registration, :profile]
 
   # GET /registrace
   def new

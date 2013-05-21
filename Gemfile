@@ -50,5 +50,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 
+gem 'newrelic_rpm'
+
 # Webserver
 gem 'thin'
