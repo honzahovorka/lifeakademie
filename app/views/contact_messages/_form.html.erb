@@ -1,0 +1,28 @@
+<%= form_for @contact_message, url: '/kontakt' do |f| %>
+
+  <% if @contact_message.errors.any? %>
+    <div class="alert flash_notifications">
+      <p><b>Zpráva nebyla odeslána. Vyskytly se tyto chyby:</b></p>
+      <ul>
+        <% @contact_message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="input-block">
+    <label><span class="required">*</span>Jméno:</label>
+    <%= f.text_field :name %>
+  </p>
+  <p class="input-block">
+    <label><span class="required">*</span>E-mail:</label>
+    <%= f.text_field :email %>
+  </p>
+  <p class="input-block">
+    <label><span class="required">*</span>Zpráva:</label>
+    <%= f.text_area :body, rows: 7 %>
+  </p>
+  <input type="submit" value="Odeslat" class="button default small">
+
+<% end %>

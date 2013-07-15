@@ -17,4 +17,9 @@ class PagesController < ApplicationController
       render 'pages/courses/lectors'
     end
   end
+
+  def contact
+    @contact_message = ContactMessage.new
+  end
+
 end

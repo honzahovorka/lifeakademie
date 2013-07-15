@@ -21,6 +21,7 @@ LifeakademieCz::Application.routes.draw do
   match '/terminy/:id/prihlaseni/potvrzeni' => 'courses#finish_reservation', via: :get, as: 'course_reservation_confirmed'
   match '/o-nas' => 'pages#about', via: :get, as: 'about'
   match '/kontakt' => 'pages#contact', via: :get, as: 'contact'
+  match '/kontakt' => 'contact_messages#create', via: :post, as: 'send_contact_message'
 
   scope '/admin' do
     match '/' => 'dashboard#admin', via: :get, as: 'admin_dashboard'

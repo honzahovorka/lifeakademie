@@ -556,19 +556,19 @@ blockquote p {
   cursor: pointer;
 }
 
-.divider-top a:hover {color: #767676;}
+.divider-top a:hover { color: #767676; }
 
 /* -------------------------------------------------- */
 /* Ordered / Unordered List Styles
 /* -------------------------------------------------- */
 
 ul.list,
-ol.list {margin-bottom: 15px;}
+ol.list { margin-bottom: 15px; }
 
-ol.list li {padding: 7px 0;}
+ol.list li { padding: 7px 0; }
 
-ol.list.type-1 li {list-style: inside decimal-leading-zero;}
-ol.list.type-2 li {list-style: inside decimal;}
+ol.list.type-1 li { list-style: inside decimal-leading-zero; }
+ol.list.type-2 li { list-style: inside decimal; }
 
 
 ul.list,
@@ -588,22 +588,22 @@ ul.list li {
 
 ol li > ul { margin-left: 20px; }
 
-ul.list.type-1 li {background-image: url(images/icons/16x16/tick.png);}
-ul.list.type-2 li {background-image: url(images/icons/16x16/add_small.png);}
-ul.list.type-3 li {background-image: url(images/icons/16x16/application_osx.png);}
-ul.list.type-4 li {background-image: url(images/icons/16x16/arrow_small_right.png);}
-ul.list.type-5 li {background-image: url(images/icons/16x16/arrow_state_blue_right.png);}
-ul.list.type-6 li {background-image: url(images/icons/16x16/check.png);}
-ul.list.type-7 li {background-image: url(images/icons/16x16/document_a4_edit.png);}
-ul.list.type-8 li {background-image: url(images/icons/16x16/document_copy.png);}
-ul.list.type-9 li {background-image: url(images/icons/16x16/folder_classic.png);}
-ul.list.type-10 li {background-image: url(images/icons/16x16/folder_modernist_stuffed.png);}
-ul.list.type-11 li {background-image: url(images/icons/16x16/pencil.png);}
-ul.list.type-12 li {background-image: url(images/icons/16x16/star_empty.png);}
-ul.list.type-13 li {background-image: url(images/icons/16x16/thumb_up.png);}
-ul.list.type-14 li {background-image: url(images/icons/16x16/view_outline.png);}
-ul.list.type-15 li {background-image: url(images/icons/16x16/warning_triangle.png);}
-ul.list.type-16 li {background-image: url(images/icons/16x16/media_controls_forward_small.png);}
+ul.list.type-1  li { background-image: url(images/icons/16x16/tick.png); }
+ul.list.type-2  li { background-image: url(images/icons/16x16/add_small.png); }
+ul.list.type-3  li { background-image: url(images/icons/16x16/application_osx.png); }
+ul.list.type-4  li { background-image: url(images/icons/16x16/arrow_small_right.png); }
+ul.list.type-5  li { background-image: url(images/icons/16x16/arrow_state_blue_right.png); }
+ul.list.type-6  li { background-image: url(images/icons/16x16/check.png); }
+ul.list.type-7  li { background-image: url(images/icons/16x16/document_a4_edit.png); }
+ul.list.type-8  li { background-image: url(images/icons/16x16/document_copy.png); }
+ul.list.type-9  li { background-image: url(images/icons/16x16/folder_classic.png); }
+ul.list.type-10 li { background-image: url(images/icons/16x16/folder_modernist_stuffed.png); }
+ul.list.type-11 li { background-image: url(images/icons/16x16/pencil.png); }
+ul.list.type-12 li { background-image: url(images/icons/16x16/star_empty.png); }
+ul.list.type-13 li { background-image: url(images/icons/16x16/thumb_up.png); }
+ul.list.type-14 li { background-image: url(images/icons/16x16/view_outline.png); }
+ul.list.type-15 li { background-image: url(images/icons/16x16/warning_triangle.png); }
+ul.list.type-16 li { background-image: url(images/icons/16x16/media_controls_forward_small.png); }
 
 #form_errors_explanation {
   ul.list {
@@ -3806,4 +3806,3 @@ img {
     }
   }
 }
-
