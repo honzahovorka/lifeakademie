@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $('.contact .spam_protection').hide()
+  $('.contact input[type="submit"]').click ->
+    $('.contact input.spam_protection').attr('value', '2')
+    if ! $('.contact input#surname').empty?
+      return false

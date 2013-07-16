@@ -250,6 +250,16 @@ end
           :program => "Program",
           :price => "Cena",
           :city => "Město"
+        },
+        :contact_message => {
+          :name => "Jméno",
+          :email => "E-mail",
+          :body => "Zpráva"
+        },
+        :contact_message => {
+          :name => 'Jméno',
+          :email => 'E-mail',
+          :body => 'Zpráva'
         }
       }
     }

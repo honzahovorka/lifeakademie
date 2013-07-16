@@ -13,6 +13,8 @@ class UserMailer < ActionMailer::Base
     @course = order.course
     @order = order
 
-    mail(to: @user.email, subject: "Potvrzení objednávky č. #{@order.variable_symbol} na lifeakademie.cz")
+    mail(to: @user.email,
+         subject: "Potvrzení objednávky č. #{@order.variable_symbol} na lifeakademie.cz"
+        )
   end
 end
