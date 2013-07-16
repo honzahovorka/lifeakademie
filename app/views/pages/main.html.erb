@@ -41,6 +41,20 @@
       </div>
       <div class="one-third column">
         <h3>Blížící se kurzy</h3>
+        <ul>
+          <% @courses.each do |course| %>
+          <li>
+            <div class="entry-meta">
+              <span class="date"><%= I18n.localize course.start_date %></span>
+            </div>
+            <h6><%= link_to course.name, course_path(course) %></h6>
+            <span class="place"><%= course.city %></span>
+          </li>
+          <% end %>
+        </ul>
+        <% if @courses.empty? %>
+          <p>Nejsou žádné blížící se kurzy</p>
+        <% end %>
         <% if false %>
         <ul>
           <li>
