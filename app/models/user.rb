@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   attr_accessor :password, :full_name, :course_interest, :form
 
   before_save :encrypt_password
-  before_create :generate_confirmation_hash
+  before_create :generate_confirmation_hash, :set_role
 
   validates_presence_of :email, :name, :surname
   validates_uniqueness_of :email
@@ -100,5 +100,13 @@ class User < ActiveRecord::Base
 
   def is_from_complete_registration?
     self.form == 'complete_registration'
+  end
+
+  def set_role
+    if email.include?('@lifeakademie.cz') || email.include?('@ovov.cz') || email.include?('@starlife.cz') || email.include?('@decarormg.cz')
+      self.role = 'editor'
+    else
+      self.role = 'user'
+    end
   end
 end

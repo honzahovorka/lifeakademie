@@ -36,6 +36,11 @@
           </td>
         </tr>
         <% end %>
+        <% if @courses.empty? %>
+          <tr>
+            <td colspan="5" class="c">Nejsou žádné dostupné termíny.</td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </section>

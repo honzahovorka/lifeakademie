@@ -73,6 +73,11 @@
               <td><%= order.is_paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
             </tr>
             <% end %>
+            <% if @user.orders.empty? %>
+              <tr>
+                <td colspan="5" class="c">Nejsou žádné objednávky.</td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
