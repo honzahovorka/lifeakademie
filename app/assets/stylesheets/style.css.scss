@@ -975,7 +975,7 @@ label.required {
 
   &:before {
     content: '*';
-    color: #e7959f;
+    color: inherit;
     margin-right: 5px;
   }
 }
