@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         if session[:return_to].present?
           format.html { redirect_to session[:return_to], notice: 'Údaje úspěšně uloženy' }
         else
@@ -64,5 +64,13 @@ class UsersController < ApplicationController
 
   def get_courses
     @courses = Course.find(:all, conditions: { available: true })
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :name, :password_hash,
+                                 :password_salt, :surname, :password, :password_confirmation, :street, :city,
+                                 :postal_code, :date_of_birth, :place_of_birth, :billing_street, :billing_city,
+                                 :company, :billing_postal_code, :company, :ic, :dic, :course_interest, :form
+                                )
   end
 end

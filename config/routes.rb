@@ -3,37 +3,37 @@ LifeakademieCz::Application.routes.draw do
 
   resources :users
 
-  match '/registrace' => 'users#new', via: :get, as: 'register'
-  match '/registrace/:user_id/dokoncit/:hash' => 'users#confirm', via: :get, as: 'confirm_registration'
-  match '/registrace/doplneni' => 'users#complete_registration', via: :get, as: 'complete_registration'
-  match '/prihlasit' => 'sessions#new', via: :get, as: 'login'
-  match '/odhlasit' => 'sessions#destroy', via: :get, as: 'logout'
-  match '/prihlasit' => 'sessions#create', via: :post
+  get '/registrace', to: 'users#new', as: 'register'
+  get '/registrace/:user_id/dokoncit/:hash', to: 'users#confirm', as: 'confirm_registration'
+  get '/registrace/doplneni', to: 'users#complete_registration', as: 'complete_registration'
+  get '/prihlasit', to: 'sessions#new', as: 'login'
+  get '/odhlasit', to: 'sessions#destroy', as: 'logout'
+  post '/prihlasit', to: 'sessions#create'
 
-  match '/profil' => 'users#profile', via: :get, as: 'profile'
+  get '/profil', to: 'users#profile', as: 'profile'
 
-  match '/nastenka' => 'dashboard#index', via: :get, as: 'dashboard'
+  get '/nastenka', to: 'dashboard#index', as: 'dashboard'
 
-  match '/kurzy(/:subpage)' => 'pages#courses', via: :get, as: 'courses'
-  match '/terminy(/mesto/:location)' => 'courses#index', via: :get, as: 'dates'
-  match '/terminy/:id' => 'courses#show', via: :get, as: 'course'
-  match '/terminy/:id/prihlaseni' => 'courses#reserve', via: :get, as: 'course_reservation'
-  match '/terminy/:id/prihlaseni/potvrzeni' => 'courses#finish_reservation', via: :get, as: 'course_reservation_confirmed'
-  match '/o-nas' => 'pages#about', via: :get, as: 'about'
-  match '/kontakt' => 'pages#contact', via: :get, as: 'contact'
-  match '/kontakt' => 'contact_messages#create', via: :post, as: 'send_contact_message'
+  get '/kurzy(/:subpage)', to: 'pages#courses', as: 'courses'
+  get '/terminy(/mesto/:location)', to: 'courses#index', as: 'dates'
+  get '/terminy/:id', to: 'courses#show', as: 'course'
+  get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
+  get '/terminy/:id/prihlaseni/potvrzeni', to: 'courses#finish_reservation', as: 'course_reservation_confirmed'
+  get '/o-nas', to: 'pages#about', as: 'about'
+  get '/kontakt', to: 'pages#contact', as: 'contact'
+  post '/kontakt', to: 'contact_messages#create', as: 'send_contact_message'
 
   scope '/admin' do
-    match '/' => 'dashboard#admin', via: :get, as: 'admin_dashboard'
-    match '/kurz/vytvorit/novy' => 'courses#new', via: :get, as: 'admin_new_course'
-    match '/kurz/:id' => 'courses#view', via: :get, as: 'admin_course'
-    match '/kurz/:id' => 'courses#destroy', via: :delete, as: 'admin_course'
-    match '/kurz/:id/upravit' => 'courses#edit', via: :get, as: 'admin_edit_course'
-    match '/kurzy' => 'courses#list', via: :get, as: 'admin_courses'
+    get '/', to: 'dashboard#admin', as: 'admin_dashboard'
+    get '/kurz/vytvorit/novy', to: 'courses#new', as: 'admin_new_course'
+    get '/kurz/:id', to: 'courses#view', as: 'admin_course'
+    delete '/kurz/:id', to: 'courses#destroy', as: 'destroy_admin_course'
+    get '/kurz/:id/upravit', to: 'courses#edit', as: 'admin_edit_course'
+    get '/kurzy', to: 'courses#list', as: 'admin_courses'
   end
 
-  match '/kurzy' => 'courses#create', via: :post
-  match '/terminy/:id' => 'courses#update', via: :put
+  post '/kurzy' => 'courses#create'
+  put '/terminy/:id' => 'courses#update'
 
-  root to: 'pages#main'
+  root 'pages#main'
 end

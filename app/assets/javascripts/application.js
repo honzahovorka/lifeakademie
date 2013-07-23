@@ -16,4 +16,14 @@
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
 //= require jquery_ujs
+//= require turbolinks
 //= require_tree .
+
+// Turbolinks
+$(document).on('page:fetch', function() {
+  $('#loading').show();
+});
+
+$(document).on('page:change', function() {
+  $('#loading').hide();
+});

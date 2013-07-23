@@ -15,7 +15,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
-  attr_accessible :paid, :paid_at, :variable_symbol
+  # attr_accessible :paid, :paid_at, :variable_symbol
 
   after_create :generate_variable_symbol!
 

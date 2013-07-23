@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
 
   # POST /kurzy
   def create
-    @course = Course.new(params[:course])
+    @course = Course.new(course_params)
 
     respond_to do |format|
       if @course.save
@@ -57,7 +57,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
 
     respond_to do |format|
-      if @course.update_attributes(params[:course])
+      if @course.update_attributes(course_params)
         format.html { redirect_to admin_course_path(@course), notice: 'Kurz úspěšně upraven' }
       else
         format.html { render 'edit' }
@@ -107,5 +107,9 @@ class CoursesController < ApplicationController
 
   def check_editor_privileges
     redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup do administrace' unless current_user.is_editor?
+  end
+
+  def course_params
+    params.require(:course).permit(:available, :name, :note, :program, :start_date, :price, :city)
   end
 end

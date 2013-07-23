@@ -1,1 +1,1 @@
-rvm 2.0.0@heroku
+rvm use 2.0.0@rails4
