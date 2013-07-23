@@ -264,6 +264,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rack-mini-profiler
+  rails
   rails_12factor
   rspec-rails
   sass-rails (~> 4.0.0)
