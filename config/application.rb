@@ -20,6 +20,22 @@ module LifeakademieCz
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :cs
 
+    # Mailer settings
+    config.action_mailer.smtp_settings = {
+      :address              => "mail.lifeakademie.cz",
+      :port                 => 25,
+      :domain               => "lifeakademie.cz",
+      :user_name            => "robot@lifeakademie.cz",
+      :password             => "NA5PTdrk",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+    }
+
+    config.action_mailer.default_url_options = {
+      :host => "lifeakademie.cz"
+    }
+
+    config.assets.initialize_on_precompile = false
     # Factory girl generator setup
     config.generators do |g|
       g.test_framework :rspec, fixture: true
