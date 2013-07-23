@@ -21,7 +21,7 @@ module LifeakademieCz
     config.i18n.default_locale = :cs
 
     # Mailer settings
-    config.action_mailer.smtp_settings = {
+    ActionMailer::Base.smtp_settings = {
       :address              => "mail.lifeakademie.cz",
       :port                 => 25,
       :domain               => "lifeakademie.cz",
