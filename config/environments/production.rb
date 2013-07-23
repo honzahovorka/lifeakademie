@@ -77,4 +77,19 @@ LifeakademieCz::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Mailer settings
+  config.action_mailer.smtp_settings = {
+    :address              => "mail.lifeakademie.cz",
+    :port                 => 25,
+    :domain               => "lifeakademie.cz",
+    :user_name            => "robot@lifeakademie.cz",
+    :password             => "NA5PTdrk",
+    :authentication       => :plain,
+    :enable_starttls_auto => true
+  }
+
+  config.action_mailer.default_url_options = {
+    :host => "lifeakademie.cz"
+  }
 end
