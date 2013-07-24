@@ -33,5 +33,20 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:user) { FactoryGirl.create(:user) }
+  let(:starlife_user) { FactoryGirl.create(:starlife_user) }
+
+  it { should respond_to :name }
+
+  context "#set_role" do
+    it "should set user role to user with email domain other than @starlife.cz and others" do
+      user.role.should eq('user')
+    end
+
+    it "should set editor role to user with email domain @starlife.cz" do
+      starlife_user.role.should eq('editor')
+    end
+  end
+
 end

@@ -69,6 +69,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     daemons (1.1.9)
+    database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
     erubis (2.7.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   capybara
   ckeditor
   coffee-rails (~> 4.0.0)
+  database_cleaner
   factory_girl_rails (~> 4.0)
   fancybox2-rails (~> 0.2.4)
   guard-rspec

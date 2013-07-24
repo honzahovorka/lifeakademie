@@ -59,6 +59,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end
 
 gem 'bcrypt-ruby', require: 'bcrypt'
