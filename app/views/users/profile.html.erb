@@ -66,11 +66,11 @@
           <tbody>
             <% @user.orders.each do |order| %>
             <tr>
-              <td class="c"><%= order.variable_symbol %></td>
+              <td class="c"><%= order %></td>
               <td><%= order.course.name %></td>
               <td><%= I18n.localize order.course.start_date %></td>
               <td><%= I18n.localize order.created_at, format: :long %></td>
-              <td><%= order.is_paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
+              <td><%= order.paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
             </tr>
             <% end %>
             <% if @user.orders.empty? %>

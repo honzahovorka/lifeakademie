@@ -13,26 +13,35 @@
 #
 
 class Order < ActiveRecord::Base
+
+  default_scope { order('created_at DESC') }
+
   belongs_to :user
   belongs_to :course
-  # attr_accessible :paid, :paid_at, :variable_symbol
 
   after_create :generate_variable_symbol!
 
-  def generate_variable_symbol!
-    vs = "%08d" % self.id
-    self.update_attribute(:variable_symbol, vs)
-    self.save
-  end
-
-  def is_paid?
+  def paid?
     paid
   end
 
   # Set order as payed and update paid_at time
   def pay!
-    self.update_attribute(:paid, true)
-    self.update_attribute(:paid_at, DateTime.now)
+    self.paid = true
+    self.paid_at = DateTime.now
     self.save
   end
+
+  def to_s
+    self.variable_symbol
+  end
+
+  private
+
+  def generate_variable_symbol!
+    vs = "%08d" % self.id
+    self.variable_symbol = vs
+    self.save
+  end
+
 end

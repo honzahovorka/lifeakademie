@@ -30,6 +30,7 @@ LifeakademieCz::Application.routes.draw do
     delete '/kurz/:id', to: 'courses#destroy', as: 'destroy_admin_course'
     get '/kurz/:id/upravit', to: 'courses#edit', as: 'admin_edit_course'
     get '/kurzy', to: 'courses#list', as: 'admin_courses'
+    get '/objednavky', to: 'orders#index', as: 'admin_orders'
   end
 
   post '/kurzy' => 'courses#create'

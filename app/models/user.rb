@@ -80,6 +80,10 @@ class User < ActiveRecord::Base
     self.update_attribute(:email_confirmation_hash, nil)
   end
 
+  def to_s
+    "#{name} #{surname}"
+  end
+
   private
 
   def generate_confirmation_hash

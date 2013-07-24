@@ -1,0 +1,33 @@
+<section class="sixteen columns">
+  <h2>Objednávky</h2>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="c">#</th>
+        <th>Zákazník</th>
+        <th>Název</th>
+        <th>Začátek</th>
+        <th>Objednáno</th>
+        <th>Zaplaceno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td class="c"><%= order %></td>
+        <td><%= order.user %></td>
+        <td><%= order.course.name %></td>
+        <td><%= I18n.localize order.course.start_date %></td>
+        <td><%= I18n.localize order.created_at, format: :long %></td>
+        <td><%= order.paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
+      </tr>
+      <% end %>
+      <% if @orders.empty? %>
+        <tr>
+          <td colspan="5" class="c">Nejsou žádné objednávky.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

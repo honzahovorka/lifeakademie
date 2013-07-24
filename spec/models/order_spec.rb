@@ -15,5 +15,34 @@
 require 'spec_helper'
 
 describe Order do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:order) { FactoryGirl.create(:order) }
+
+  it { should belong_to :user }
+  it { should belong_to :course }
+
+  it { should_not be_paid }
+
+  context "#pay!" do
+    it "should set paid and paid_at" do
+      subject.pay!
+      subject.paid.should be_true
+      subject.paid_at.should be_within(1.second).of(DateTime.now)
+    end
+  end
+
+  context "#generate_variable_symbol!" do
+    it "should generate the right variable symbol" do
+      subject.save
+      subject.variable_symbol.should eq('00000001')
+    end
+  end
+
+  context "#to_s" do
+    it "should return variable symbol as string representation of object" do
+      subject.save!
+      subject.to_s.should eq('00000001')
+    end
+  end
+
 end
