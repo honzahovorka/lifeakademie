@@ -18,6 +18,7 @@
 class Course < ActiveRecord::Base
 
   scope :upcoming, lambda { where('start_date > ?', 1.day.ago).limit(5) }
+  scope :available, -> { where('available', true) }
 
   # attr_accessible :available, :name, :note, :program, :start_date, :price, :city
 

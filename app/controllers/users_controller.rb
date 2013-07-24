@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   private
 
   def get_courses
-    @courses = Course.find(:all, conditions: { available: true })
+    @courses = Course.available
   end
 
   def user_params

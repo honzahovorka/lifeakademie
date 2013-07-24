@@ -20,6 +20,8 @@ module LifeakademieCz
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :cs
 
+    config.secret_key_base = '6XVGb3tNSNfyuQt8nt'
+
     # Mailer settings
     config.action_mailer.smtp_settings = {
       :address              => "mail.lifeakademie.cz",
