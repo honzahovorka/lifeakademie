@@ -17,11 +17,8 @@ describe "Admin orders section" do
   end
 
   describe "There is no orders placed" do
-
     it "should display message that there are no orders" do
-
       visit admin_orders_path
-
       within 'table' do
         page.should have_content 'Nejsou žádné objednávky'
       end
@@ -29,7 +26,6 @@ describe "Admin orders section" do
   end
 
   describe "There is a few orders" do
-
     before :each do
       @order = FactoryGirl.create(:order)
       @order.save
@@ -60,11 +56,9 @@ describe "Admin orders section" do
        within 'table' do
          click_link 'Zaplatit'
        end
-
        page.should_not have_content 'Zaplatit'
        page.should_not have_content 'Nezaplaceno'
        page.should have_content DateTime.now.strftime('%d. %m. %Y')
-
        page.should have_content "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
       end
     end

@@ -52,10 +52,6 @@ class User < ActiveRecord::Base
     email_confirmed
   end
 
-  def is_editor?
-    role == 'editor'
-  end
-
   def editor?
     role == 'editor'
   end

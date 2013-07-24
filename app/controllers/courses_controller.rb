@@ -106,7 +106,7 @@ class CoursesController < ApplicationController
   end
 
   def check_editor_privileges
-    redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup do administrace' unless current_user.is_editor?
+    redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup do administrace' unless current_user.editor?
   end
 
   def course_params
