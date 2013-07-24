@@ -56,6 +56,10 @@ class User < ActiveRecord::Base
     role == 'editor'
   end
 
+  def editor?
+    role == 'editor'
+  end
+
   def is_eligible?
     street.present? and city.present? and postal_code.present? and place_of_birth.present? and date_of_birth.present?
   end
@@ -76,8 +80,8 @@ class User < ActiveRecord::Base
   end
 
   def confirm_email!
-    self.update_attribute(:email_confirmed, true)
-    self.update_attribute(:email_confirmation_hash, nil)
+    self.email_confirmed = true
+    self.email_confirmation_hash = nil
   end
 
   def to_s

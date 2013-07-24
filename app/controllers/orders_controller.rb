@@ -8,6 +8,13 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+  def pay_order
+    @order = Order.find(params[:id])
+    @order.pay!
+
+    redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
+  end
+
   private
 
   def check_editor_privileges
