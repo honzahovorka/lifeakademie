@@ -2,6 +2,7 @@ LifeakademieCz::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :users
+  # resources :courses
 
   get '/registrace', to: 'users#new', as: 'register'
   get '/registrace/:user_id/dokoncit/:hash', to: 'users#confirm', as: 'confirm_registration'
@@ -14,7 +15,7 @@ LifeakademieCz::Application.routes.draw do
 
   get '/nastenka', to: 'dashboard#index', as: 'dashboard'
 
-  get '/kurzy(/:subpage)', to: 'pages#courses', as: 'courses'
+  get '/kurzy(/:subpage)', to: 'pages#courses', as: 'page_courses'
   get '/terminy(/mesto/:location)', to: 'courses#index', as: 'dates'
   get '/terminy/:id', to: 'courses#show', as: 'course'
   get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
@@ -27,6 +28,7 @@ LifeakademieCz::Application.routes.draw do
     get '/', to: 'dashboard#admin', as: 'admin_dashboard'
     get '/kurz/vytvorit/novy', to: 'courses#new', as: 'admin_new_course'
     get '/kurz/:id', to: 'courses#view', as: 'admin_course'
+    patch '/kurz/:id', to: 'courses#update'
     delete '/kurz/:id', to: 'courses#destroy', as: 'destroy_admin_course'
     get '/kurz/:id/upravit', to: 'courses#edit', as: 'admin_edit_course'
     get '/kurzy', to: 'courses#list', as: 'admin_courses'
@@ -36,6 +38,7 @@ LifeakademieCz::Application.routes.draw do
 
   post '/kurzy' => 'courses#create'
   put '/terminy/:id' => 'courses#update'
+  patch '/terminy/:id' => 'courses#update'
 
   root 'pages#main'
 end
