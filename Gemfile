@@ -65,7 +65,7 @@ end
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 gem "paperclip", "~> 3.0"
-gem 'ckeditor'
+gem 'ckeditor_rails'
 
 # JavasScript libs
 gem 'jquery-rails'

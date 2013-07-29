@@ -1,5 +1,5 @@
 LifeakademieCz::Application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  # mount Ckeditor::Engine => '/ckeditor'
 
   resources :users
   # resources :courses
@@ -17,7 +17,7 @@ LifeakademieCz::Application.routes.draw do
 
   get '/kurzy(/:subpage)', to: 'pages#courses', as: 'courses'
   get '/terminy(/mesto/:location)', to: 'courses#index', as: 'dates'
-  get '/terminy/:id', to: 'courses#show', as: 'course'
+  # get '/terminy/:id', to: 'courses#show', as: 'course'
   get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
   get '/terminy/:id/prihlaseni/potvrzeni', to: 'courses#finish_reservation', as: 'course_reservation_confirmed'
   get '/o-nas', to: 'pages#about', as: 'about'
