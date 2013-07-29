@@ -15,7 +15,7 @@ LifeakademieCz::Application.routes.draw do
 
   get '/nastenka', to: 'dashboard#index', as: 'dashboard'
 
-  get '/kurzy(/:subpage)', to: 'pages#courses', as: 'page_courses'
+  get '/kurzy(/:subpage)', to: 'pages#courses', as: 'courses'
   get '/terminy(/mesto/:location)', to: 'courses#index', as: 'dates'
   get '/terminy/:id', to: 'courses#show', as: 'course'
   get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
