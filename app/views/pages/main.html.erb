@@ -19,6 +19,18 @@
       </div>
     </section>
 
+    <div class="sixteen columns main-page-container">
+      <h3>O nás</h3>
+      <p>Po dlouholeté praxi a přednášek nejen ve výživě, výživových plánech, ale i sportu se nás klienti, studenti našich jednorázových tématických seminářů ptali, kdy bude "něco" konkrétního, licencovaného.</p>
+      <p>A je to tady!</p>
+      <ul class="list">
+        <li>Výživové kurzy s akreditací MŠMT "Poradce pro výživu"</li>
+        <li>Kompletní program zdravého životního stylu</li>
+        <li>Výživa, sport, regenerace</li>
+        <li>Váš vzdělávací program pod vedením odborného lektorského týmu s dlouholetou praxí a přednáškovou činností.</li>
+      </ul>
+    </div>
+
     <%= yield %>
 
     <div class="one-third column">
@@ -26,21 +38,6 @@
       <div>
         <p>Nejsou žádné aktuální informace</p>
       </div>
-      <% if false %>
-      <div>
-        <ul>
-          <li>
-            <h6 class="title"><a href="default-news-post/default.htm">Default News Post</a></h6>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis aliquet augue, eu varius purus sollicitudin eget. Donec tellus nunc...
-          </li>
-
-          <li>
-            <h6 class="title"><a href="lorem-ipsum-dolor-sit-amet/default.htm">Lorem Ipsum Dolor Sit Amet</a></h6>
-            Mollis malesuada primis in faucibus luctus ultrces posuere cubilia nis velit porttitor euismod pharetra interetiam laoreet gitis placerat ma...
-            </li>
-          </ul>
-        </div><!--/ .alternate-->
-        <% end %>
       </div>
       <div class="one-third column">
         <h3>Blížící se kurzy</h3>
@@ -51,43 +48,11 @@
               <span class="date"><%= I18n.localize course.start_date %></span>
             </div>
             <h6><%= link_to course.name, course_path(course) %></h6>
-            <span class="place"><%= course.city %></span>
           </li>
           <% end %>
         </ul>
         <% if @courses.empty? %>
           <p>Nejsou žádné blížící se kurzy</p>
-        <% end %>
-        <% if false %>
-        <ul>
-          <li>
-            <div class="entry-meta">
-              <span class="date">16</span>
-              <span class="month">apr</span>
-            </div><!--/ .entry-meta-->
-            <h6><a href="event/platea-leo-sollicitudin/default.htm">Platea leo sollicitudin</a></h6>
-            <span class="place">Labore nemo quis quibusdam</span>
-            <span class="time">03:00 pm - 05:15 pm</span>
-          </li>
-          <li>
-            <div class="entry-meta">
-              <span class="date">19</span>
-              <span class="month">apr</span>
-            </div><!--/ .entry-meta-->
-            <h6><a href="event/quas-eveniet-augue/default.htm">Quas eveniet augue?</a></h6>
-            <span class="place">Labore nemo quis quibusdam</span>
-            <span class="time">09:00 am - 01:15 pm</span>
-          </li>
-          <li>
-            <div class="entry-meta">
-              <span class="date">19</span>
-              <span class="month">apr</span>
-            </div><!--/ .entry-meta-->
-            <h6><a href="event/platea-leo-sollicitudin/default.htm">Platea leo sollicitudin</a></h6>
-            <span class="place">Labore nemo quis quibusdam</span>
-            <span class="time">03:00 pm - 05:15 pm</span>
-          </li>
-        </ul>
         <% end %>
       </div>
       <div class="one-third column">
@@ -100,5 +65,5 @@
           Masarykovo nádraží 1km od budovy
         </p>
       </div>
-  </section><!--/ #content-->
+  </section><!--/ #content -->
 </section><!--/ .main -->
