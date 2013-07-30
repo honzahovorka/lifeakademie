@@ -1,5 +1,6 @@
+#coding: utf-8
 class UserMailer < ActionMailer::Base
-  default from: "Lifeakademie.cz <robot@lifeakademie.cz>"
+  default from: "Lifeakademie.cz <nobody@lifeakademie.cz>"
 
   def confirm(user, host)
     @user = user
@@ -12,9 +13,12 @@ class UserMailer < ActionMailer::Base
     @user = order.user
     @course = order.course
     @order = order
+    attachments.inline['logo.png'] = File.read("#{Rails.root.to_s}/app/assets/images/layout/logo.png")
 
     mail(to: @user.email,
-         subject: "Potvrzení objednávky č. #{@order.variable_symbol} na lifeakademie.cz"
+         subject: "Potvrzení objednávky č. #{@order.variable_symbol} na lifeakademie.cz",
+         bcc: ['janh@starlife.cz', 'info@lifeakademie.cz'],
+         reply_to: 'info@lifeakademie.cz'
         )
   end
 end

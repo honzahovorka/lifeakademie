@@ -36,6 +36,14 @@ class Order < ActiveRecord::Base
     self.variable_symbol
   end
 
+  def due_pay
+    if self.course.start_date - 7.days >= DateTime.now
+      self.course.start_date - 7.days
+    else
+      self.course.start_date - 3.days
+    end
+  end
+
   private
 
   def generate_variable_symbol!

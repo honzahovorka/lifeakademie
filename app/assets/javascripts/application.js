@@ -11,10 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.datepicker.cz
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
-//= require jquery_ujs
+//= require jquery.ui.datepicker.cz
 //= require ckeditor-jquery
 //= require turbolinks
 //= require_tree .

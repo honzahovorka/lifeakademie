@@ -29,6 +29,6 @@ class Course < ActiveRecord::Base
   has_many :orders
 
   def name_with_date
-    "#{name}, #{city} - #{I18n.localize(start_date)}"
+    "#{city}, zahájení od #{I18n.localize(start_date)}"
   end
 end

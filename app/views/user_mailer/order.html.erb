@@ -4,18 +4,35 @@
   <title>Potvrzení objednávky č. <%= @order.variable_symbol %> na lifeakademie.cz</title>
   </head>
   <body>
-    <p>
+
+    <%= image_tag attachments['logo.png'].url, :alt => "LifeAkademie" %>
+
+    <p style="font-family: Arial, serif; font-size: 14px; display: block; width: 100%;">
       Dobrý den,<br>
-      potvrzujeme přijetí Vaší objednávky kurzu na webu <a href="">lifeakademie.cz</a>.
+      potvrzujeme přijetí Vaší objednávky kurzu na webu <a href="http://www.lifeakademie.cz">lifeakademie.cz</a>.
     </p>
 
-    <p>
+    <p style="font-family: Arial, serif; font-size: 14px; display: block; width: 100%;">
       Objednaný kurz: <b><%= @order.course.name_with_date %></b><br>
-      Objednávku prosím zaplaťte na účet <b>4190589001/5500</b> (Raiffeisenbank) s variabilní symbolem <b><%= @order.variable_symbol %></b> částku <b><%= number_to_currency @order.course.price %></b>.
+      Objednávku prosím zaplaťte do <b><%= I18n.localize @order.due_pay %></b><br>
+      Údaje pro platbu:<br>
+      Číslo účtu: <b>4190589001/5500</b> (Raiffeisenbank)<br>
+      Variabilní symbol: <b><%= @order.variable_symbol %></b><br>
+      Částka <b><%= number_to_currency @order.course.price %></b>
     </p>
 
-    <p>
+    <p style="font-family: Arial, serif; font-size: 14px; display: block; width: 100%;">
       Děkujeme!
+    </p>
+
+
+    <p style="font-family: Arial, serif; font-size: 10px; display: block; width: 100%; border-top: 1px solid #ececec; margin: 2em 0; padding: .75em 0;">
+      <strong>DECARO RMG s.r.o.</strong><br>
+      Husovo náměstí 1702<br>
+      253 01 Hostivice<br>
+      IČO: 61943762<br>
+      Č. ú.: 4190589001/5500 (Raiffeisenbank)<br>
+      E-mail: <a href="mailto:info@lifeakademie.cz">info@lifeakademie.cz</a>
     </p>
 
   </body>
