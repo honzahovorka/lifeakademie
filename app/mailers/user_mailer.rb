@@ -1,4 +1,3 @@
-#coding: utf-8
 class UserMailer < ActionMailer::Base
   default from: "Lifeakademie.cz <nobody@lifeakademie.cz>"
 

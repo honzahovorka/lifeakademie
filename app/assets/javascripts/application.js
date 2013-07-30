@@ -11,18 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker.cz
 //= require ckeditor-jquery
-//= require turbolinks
 //= require_tree .
-
-// Turbolinks
-$(document).on('page:fetch', function() {
-  $('#loading').show();
-});
-
-$(document).on('page:change', function() {
-  $('#loading').hide();
-});
