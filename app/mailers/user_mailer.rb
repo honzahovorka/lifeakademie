@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = "http://#{host}#{confirm_registration_path(@user, @user.email_confirmation_hash)}"
 
-    mail(to: @user.email, subject: "Registrace na webu lifeakademie.cz")
+    mail(to: @user.email, subject: "Registrace na webu lifeakademie.cz", bcc: 'janh@starlife.cz')
   end
 
   def order(order)
