@@ -4,6 +4,7 @@ class UserMailer < ActionMailer::Base
   def confirm(user, host)
     @user = user
     @url = "http://#{host}#{confirm_registration_path(@user, @user.email_confirmation_hash)}"
+    attachments.inline['logo.png'] = File.read("#{Rails.root.to_s}/app/assets/images/layout/logo.png")
 
     mail(to: @user.email, subject: "Registrace na webu lifeakademie.cz", bcc: 'janh@starlife.cz')
   end

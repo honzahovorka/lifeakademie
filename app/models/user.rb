@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   def confirm_email!
     self.email_confirmed = true
     self.email_confirmation_hash = nil
-    self.save
+    self.save validate: false
   end
 
   def to_s
