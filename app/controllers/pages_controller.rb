@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def main
-    @courses = Course.upcoming
+    @courses = Course.upcoming(5)
   end
 
   def courses
