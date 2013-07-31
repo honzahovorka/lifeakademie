@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
-$ ->
+$(document).on 'page:change', ->
   if $(".toggle-container").length
     $(".toggle-container").hide()
     $(".box-toggle").on "click", ".trigger", (e) ->
@@ -10,10 +10,10 @@ $ ->
       self.toggleClass("active").next().stop(true, true).slideToggle "slow"
       e.preventDefault()
 
-$ ->
+$(document).on 'page:change', ->
   $('.datepicker').datepicker()
 
-$(document).ready ->
+$(document).on 'page:change', ->
   notifications = $('body').find($('.flash_notification'))
   if notifications.length > 0
     bar = $('<ul id="notifications-bar" class="container"></ul>')

@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'page:change', ->
   $('.contact .spam_protection').hide()
   $('.contact input[type="submit"]').click ->
     $('.contact input.spam_protection').attr('value', '2')

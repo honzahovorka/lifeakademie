@@ -1,5 +1,8 @@
-$ ->
+$(document).ready ->
   if $('body').find('#course_note').length > 0
+
+    $('.ckeditor').ckeditor()
+
     CKEDITOR.editorConfig = (config) ->
       config.format_tags = "p;h3;h4"
       config.toolbar_Simple = [
