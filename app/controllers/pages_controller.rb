@@ -22,5 +22,4 @@ class PagesController < ApplicationController
   def contact
     @contact_message = ContactMessage.new
   end
-
 end
