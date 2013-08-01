@@ -1,3 +1,11 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a[rel="external"]:after {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  content: ' ';
+  background: image-url('layout/external-link-icon.png') 3px 7px no-repeat;
+}

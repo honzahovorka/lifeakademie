@@ -48,3 +48,15 @@ $(document).on 'page:change', ->
     }, 'fast')
 
     bar.prependTo($('body'))
+
+
+# select all links to external sites and add them attribute rel="external"
+$ ->
+  $("a[href*='http://']:not([href*='" + location.hostname + "']),[href*='https://']:not([href*='" + location.hostname + "'])")
+    .attr("rel","external")
+
+# open external links in new tab
+$ ->
+  $('a[rel="external"]').click ->
+    window.open($(this).attr('href'))
+    return false
