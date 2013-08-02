@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
-$(document).on 'page:change', ->
+$(document).ready ->
   if $(".toggle-container").length
     $(".toggle-container").hide()
     $(".box-toggle").on "click", ".trigger", (e) ->
@@ -10,10 +10,10 @@ $(document).on 'page:change', ->
       self.toggleClass("active").next().stop(true, true).slideToggle "slow"
       e.preventDefault()
 
-$(document).on 'page:change', ->
+$(document).ready ->
   $('.datepicker').datepicker()
 
-$(document).on 'page:change', ->
+$(document).ready ->
   notifications = $('body').find($('.flash_notification'))
   if notifications.length > 0
     bar = $('<ul id="notifications-bar" class="container"></ul>')
@@ -50,13 +50,16 @@ $(document).on 'page:change', ->
     bar.prependTo($('body'))
 
 
-# select all links to external sites and add them attribute rel="external"
-$(document).ready ->
+externalLinks = ->
+  # select all links to external sites and add them attribute rel="external"
   $("a[href*='http://']:not([href*='" + location.hostname + "']),[href*='https://']:not([href*='" + location.hostname + "'])")
     .attr("rel","external").attr("data-no-turbolink", "true")
 
-# open external links in new tab
-$(document).ready ->
-  $('a[rel="external"]').click ->
+  # open external links in new tab
+  $('a[rel="external"]').click (e) ->
+    e.preventDefault()
     window.open($(this).attr('href'))
-    return false
+
+
+$(document).ready ->
+  externalLinks()
