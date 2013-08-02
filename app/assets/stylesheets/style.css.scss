@@ -257,7 +257,7 @@ body {
   -webkit-font-smoothing: antialiaszed; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
   font: 16px/1.5 'Open Sans', Arial;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 b, strong {
@@ -1729,8 +1729,8 @@ header .container { z-index: 2;}
 }
 
 .breadcrumbs a {
-  padding: 0 17px 0 0;
-  /* margin: 0 7px 0 0; */
+  padding: 0px 22px 0px 0px;
+  margin: 0 7px 0 0;
   background-image: image-url('layout/icons/arrowclass.png');
   background-position: right center;
   background-repeat: no-repeat;

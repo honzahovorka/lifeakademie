@@ -19,6 +19,7 @@ LifeakademieCz::Application.routes.draw do
   get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
   get '/terminy/:id/prihlaseni/potvrzeni', to: 'courses#finish_reservation', as: 'course_reservation_confirmed'
   get '/o-nas', to: 'pages#about', as: 'about'
+  get '/partneri', to: 'pages#partners', as: 'partners'
   get '/kontakt', to: 'pages#contact', as: 'contact'
   post '/kontakt', to: 'contact_messages#create', as: 'send_contact_message'
 
