@@ -253,11 +253,11 @@ a.event-link:hover span.event-numbers
 /* ---------------------------------------------------------------------- */
 
 body {
-  color: #222;
+  color: #000;
   -webkit-font-smoothing: antialiaszed; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
-  font: 14px/1.5 'Open Sans', Arial;
-  font-weight: 300;
+  font: 16px/1.5 'Open Sans', Arial;
+  font-weight: 400;
 }
 
 b, strong {
@@ -1730,6 +1730,7 @@ header .container { z-index: 2;}
 
 .breadcrumbs a {
   padding: 0 17px 0 0;
+  /* margin: 0 7px 0 0; */
   background-image: image-url('layout/icons/arrowclass.png');
   background-position: right center;
   background-repeat: no-repeat;
@@ -2468,7 +2469,7 @@ article.entry .entry-body {
   border-style: solid;
   border-color: #d2cfc9;
   background-color: #F1EFE5;
-  color: #222;
+  color: #000;
   font-weight: 700;
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,.15);
      -moz-box-shadow: 0 0 2px rgba(0,0,0,.15);
