@@ -3,6 +3,7 @@ LifeakademieCz::Application.routes.draw do
   # resources :courses
 
   get '/registrace', to: 'users#new', as: 'register'
+  get '/registrace/:user_id/znovu-poslat-potvrzeni', to: 'users#resend_confirmation', as: 'resend_confirmation'
   get '/registrace/:user_id/dokoncit/:hash', to: 'users#confirm', as: 'confirm_registration'
   get '/registrace/doplneni', to: 'users#complete_registration', as: 'complete_registration'
   get '/prihlasit', to: 'sessions#new', as: 'login'

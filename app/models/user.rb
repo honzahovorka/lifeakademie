@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   attr_accessor :password, :full_name, :course_interest, :form
 
   before_save :encrypt_password
-  before_create :generate_confirmation_hash, :set_role
+  before_create :generate_confirmation_hash!, :set_role
 
   validates_presence_of :email, :name, :surname
   validates_uniqueness_of :email
@@ -85,11 +85,12 @@ class User < ActiveRecord::Base
     "#{name} #{surname}"
   end
 
-  private
-
-  def generate_confirmation_hash
-    self.email_confirmation_hash = SecureRandom.hex(10)
+  def generate_confirmation_hash!
+    self.email_confirmation_hash ||= SecureRandom.hex(10)
+    self.save validate: false
   end
+
+  private
 
   def encrypt_password
     if password.present?

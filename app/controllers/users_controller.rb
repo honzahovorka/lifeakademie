@@ -22,6 +22,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def resend_confirmation
+    @user = User.find(params[:user_id])
+    if @user
+      @user.generate_confirmation_hash!
+      UserMailer.confirm(@user, request.host).deliver
+      redirect_to root_path, :notice => "Uživatel úspěšně zaregistrován. Na email <b>#{@user.email}</b> Vám byly zaslány instrukce pro dokončení registrace.".html_safe
+    end
+  end
+
   # GET /registrace/:user_id/dokoncit/:hash
   def confirm
     @user = User.find(params[:user_id])
