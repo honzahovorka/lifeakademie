@@ -44,6 +44,11 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def storno!
+    self.status = 'storno'
+    self.save validate: false
+  end
+
   private
 
   def generate_variable_symbol!

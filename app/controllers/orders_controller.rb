@@ -8,8 +8,20 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+
+  def storno
+    @order = Order.find params[:id]
+    if @order.user == current_user
+      @order.storno!
+      OrderMailer.storno(@order).deliver
+      redirect_to profile_path, notice: "Objednávka č. #{@order.variable_symbol} úspěšně stornována"
+    else
+      redirect_to root_path, alert: 'Nemůžete stornovat objednávku'
+    end
+  end
+
   def pay_order
-    @order = Order.find(params[:id])
+    @order = Order.find params[:id]
     @order.pay!
 
     redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"

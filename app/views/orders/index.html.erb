@@ -21,9 +21,19 @@
         <td><%= order.course.name %></td>
         <td><%= I18n.localize order.course.start_date %></td>
         <td><%= I18n.localize order.created_at, format: :long %></td>
-        <td><%= order.paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
         <td>
-          <% if ! order.paid? %>
+        <% if order.status == 'storno' %>
+          Stornováno
+        <% else %>
+          <% if order.paid? %>
+            Zaplaceno
+          <% else %>
+            Čeká na zaplacení
+          <% end %>
+        <% end %>
+        </td>
+        <td>
+          <% if !order.paid? and order.status != 'storno' %>
             <%= link_to 'Zaplatit', admin_orders_pay_path(order) %>
           <% end %>
         </td>
