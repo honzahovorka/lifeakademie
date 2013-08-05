@@ -17,5 +17,6 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker.cz
 //= require ckeditor-jquery
+//= require url.min.js
 //= require_tree .
 // require turbolinks
