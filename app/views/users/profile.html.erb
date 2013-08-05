@@ -43,7 +43,7 @@
       <div class="twelve columns"><%= @user.postal_code %></div>
     </div>
 
-    <div class="clearfix"></div>
+    <div class="border-divider"></div>
 
     <div class="row">
       <div class="sixteen columns">
@@ -60,7 +60,7 @@
               <th>Název</th>
               <th>Začátek</th>
               <th>Objednáno</th>
-              <th>Zaplaceno</th>
+              <th>Stav</th>
             </tr>
           </thead>
           <tbody>
@@ -70,7 +70,17 @@
               <td><%= order.course.name %></td>
               <td><%= I18n.localize order.course.start_date %></td>
               <td><%= I18n.localize order.created_at, format: :long %></td>
-              <td><%= order.paid? ? I18n.localize(order.paid_at.to_date) : 'Nezaplaceno' %></td>
+              <td>
+              <% if order.status == 'storno' %>
+                Stornováno
+              <% else %>
+                <% if order.paid? %>
+                  Zaplaceno
+                <% else %>
+                  Čeká na zaplacení
+                <% end %>
+              <% end %>
+              </td>
             </tr>
             <% end %>
             <% if @user.orders.empty? %>
