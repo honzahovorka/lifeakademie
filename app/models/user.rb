@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :password, :full_name, :course_interest, :form
 
-  before_save :encrypt_password
+  before_save :encrypt_password, :check_password_change
   before_create :generate_confirmation_hash!, :set_role
 
   validates_presence_of :email, :name, :surname
@@ -87,6 +87,12 @@ class User < ActiveRecord::Base
 
   def generate_confirmation_hash!
     self.email_confirmation_hash ||= SecureRandom.hex(10)
+  end
+
+  def reset_password!
+    self.password_reset_hash = SecureRandom.hex(25)
+    self.password_reseted_at = DateTime.now
+
     self.save validate: false
   end
 
@@ -108,6 +114,13 @@ class User < ActiveRecord::Base
       self.role = 'editor'
     else
       self.role = 'user'
+    end
+  end
+
+  def check_password_change
+    if self.password_hash_changed?
+      self.password_reset_hash = nil
+      self.password_reseted_at = nil
     end
   end
 end

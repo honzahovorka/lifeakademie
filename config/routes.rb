@@ -6,6 +6,10 @@ LifeakademieCz::Application.routes.draw do
   get '/registrace/:user_id/znovu-poslat-potvrzeni', to: 'users#resend_confirmation', as: 'resend_confirmation'
   get '/registrace/:user_id/dokoncit/:hash', to: 'users#confirm', as: 'confirm_registration'
   get '/registrace/doplneni', to: 'users#complete_registration', as: 'complete_registration'
+  get '/registrace/reset-hesla', to: 'users#password_reset_request', as: 'request_password_reset'
+  post '/registrace/reset-hesla', to: 'users#password_reset', as: 'password_reset'
+  get '/registrace/reset-hesla/:id/:hash', to: 'users#change_password', as: 'change_password'
+
   get '/prihlasit', to: 'sessions#new', as: 'login'
   get '/odhlasit', to: 'sessions#destroy', as: 'logout'
   post '/prihlasit', to: 'sessions#create'

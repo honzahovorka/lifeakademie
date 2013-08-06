@@ -32,7 +32,8 @@ class SessionsController < ApplicationController
   # GET /odhlasit
   def destroy
     session[:user_id] = nil
-    cookies.delete :remember_me_id if cookies[:remember_me_id]
+    cookies.delete :remember_me_id   if cookies[:remember_me_id]
+    cookies.delete :remember_me_code if cookies[:remember_me_code]
 
     if session[:return_to].present?
       redirect_to session[:return_to], notice: 'Uživatel úspěšně odhlášen'

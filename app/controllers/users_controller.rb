@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     respond_to do |format|
       if @user.save
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def resend_confirmation
-    @user = User.find(params[:user_id])
+    @user = User.find params[:user_id]
     if @user
       @user.generate_confirmation_hash!
       UserMailer.confirm(@user, request.host).deliver
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   # PUT /users
   def update
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
 
     respond_to do |format|
       if @user.update_attributes(user_params)
@@ -59,7 +59,11 @@ class UsersController < ApplicationController
           format.html { redirect_to root_path, notice: 'Údaje úspěšně uloženy' }
         end
       else
-        format.html { render 'complete_registration' }
+        if request.referer.include?('reset-hesla')
+          format.html { render 'change_password' }
+        else
+          format.html { render 'complete_registration' }
+        end
       end
     end
   end
@@ -67,6 +71,42 @@ class UsersController < ApplicationController
   # GET /profil
   def profile
     @user = User.find(current_user)
+  end
+
+  ##### PASSWORD RESET
+
+  # GET /registrace/reset-hesla
+  def password_reset_request
+  end
+
+  # POST /registrace/reset-hesla
+  def password_reset
+    if params[:email].empty?
+      redirect_to request_password_reset_path, :alert => 'Musíte vyplnit e-mail'
+      return
+    end
+
+    @user = User.find_by_email params[:email]
+    if @user
+      if @user.confirmed?
+        @user.reset_password!
+        UserMailer.password_reset(@user, request.host).deliver
+        redirect_to root_path, notice: "Reset hesla proběhl úspěšně! Na Váš email (#{@user.email}) byly odeslány instrukce pro nastavení nového hesla."
+      else
+        redirect_to login_path, alert: "Uživatelský účet nebyl dosud aktivován! Zkontrolujte svojí emailovou adresu zadanou při registraci (#{@user.email}) na kterou Vám byl odeslán aktivační email a řiďte se pokyny obsaženými v emailu. <a href=\"/registrace/#{@user.id}/znovu-poslat-potvrzeni\">Poslat znovu aktivační email</a>".html_safe
+      end
+    else
+      redirect_to request_password_reset_path, alert: 'Uživatel s Vámi zadanou emailovou adresou neexistuje'
+    end
+  end
+
+  # GET /registrace/reset-hesla/:id/:hash
+  def change_password
+    @user = User.find params[:id]
+
+    if ! (@user.password_reset_hash == params[:hash] and @user.password_reseted_at + 1.day >= DateTime.now)
+      redirect_to request_password_reset_path, alert: 'Platnost požadavku na změnu hesla vypršela. Zažádejte o změnu hesla znovu.'
+    end
   end
 
   private
