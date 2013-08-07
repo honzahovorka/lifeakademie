@@ -36,7 +36,11 @@
     <div class="one-third column">
       <h3>Aktuální informace</h3>
       <div>
-        <p>Právě se můžete přihlašovat na <a href="/terminy">kurzy</a>, těšíme se na vás. Vaše Life Akademie.</p>
+        <% if FALSE %>
+          <p>Právě se můžete přihlašovat na <a href="/terminy">kurzy</a>, těšíme se na vás. Vaše Life Akademie.</p>
+        <% else %>
+          <p>Nejsou žádné aktuality</p>
+        <% end %>
       </div>
       </div>
       <div class="one-third column">
