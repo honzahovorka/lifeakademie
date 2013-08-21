@@ -67,8 +67,8 @@ class CoursesController < ApplicationController
 
   # GET /terminy(/:location)
   def index
-    # @courses = Course.upcoming
-    @courses = []
+    @courses = Course.upcoming
+    # @courses = []
   end
 
   # GET /terminy/:id
