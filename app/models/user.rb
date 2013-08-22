@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email, :name, :surname
   validates_uniqueness_of :email
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "nemá správný formát (jmeno@server.tld)"
   validates_confirmation_of :password, :message => "se neshoduje s potvrzením hesla"
 
   validates_presence_of :password, unless: :is_from_complete_registration?
