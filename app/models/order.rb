@@ -52,8 +52,8 @@ class Order < ActiveRecord::Base
   private
 
   def generate_variable_symbol!
-    vs = "%08d" % self.id
-    self.variable_symbol = vs
+    vs = "%07d" % self.id
+    self.variable_symbol = "77#{vs}"
     self.save
   end
 
