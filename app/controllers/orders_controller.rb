@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
   def pay_order
     @order = Order.find params[:id]
     @order.pay!
+    OrderMailer.paid(@order).deliver
 
     redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
   end
