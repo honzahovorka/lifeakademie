@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Nezaplacené objednávky k <%= I18n.localize @date, format: :long %></title>
+  </head>
+  <body>
+
+    <p style="font-family: Arial, serif; font-size: 14px; display: block; width: 100%; margin-bottom: 20px;"><%= image_tag attachments['logo.png'].url, :alt => "LifeAkademie" %></p>
+
+    <p style="font-family: Arial, serif; font-size: 14px; display: block; width: 100%;">
+      Dobrý den, <br>
+      přehled nezaplacených objednávek k <%= I18n.localize @date, format: :long %>
+    </p>
+
+    <h2>Objednávky</h2>
+
+    <table style="width: 100%; border: 1px solid #000, padding: 4px;">
+      <thead>
+        <tr>
+          <th>Variabilní symbol</th>
+          <th>Částka</th>
+          <th>Zákazník</th>
+          <th>Objednáno</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order %></td>
+          <td><%= order.course.price %></td>
+          <td><%= order.user %></td>
+          <td><%= I18n.localize order.created_at, format: :long %></td>
+        </tr>
+        <% end %>
+        <% if @orders.empty? %>
+          <tr>
+            <td colspan="7" style="text-align: center;">Nejsou žádné nezaplacené objednávky.</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p style="font-family: Arial, serif; font-size: 10px; display: block; width: 100%; border-top: 1px solid #ececec; margin: 2em 0; padding: .75em 0;">
+      <strong>DECARO RMG s.r.o.</strong><br>
+      Husovo náměstí 1702<br>
+      253 01 Hostivice<br>
+      IČO: 61943762<br>
+      Č. ú.: 4190589001/5500 (Raiffeisenbank)<br>
+      E-mail: <a href="mailto:info@lifeakademie.cz">info@lifeakademie.cz</a>
+    </p>
+
+  </body>
+</html>
+
+
+

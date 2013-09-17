@@ -24,6 +24,7 @@ LifeakademieCz::Application.routes.draw do
   get '/terminy/:id/prihlaseni', to: 'courses#reserve', as: 'course_reservation'
   get '/terminy/:id/prihlaseni/potvrzeni', to: 'courses#finish_reservation', as: 'course_reservation_confirmed'
   get '/objednavky/:id/storno', to: 'orders#storno', as: 'storno_order'
+  get '/objednavky/nezaplacene', to: 'orders#unpaid'
   get '/o-nas', to: 'pages#about', as: 'about'
   get '/partneri', to: 'pages#partners', as: 'partners'
   get '/kontakt', to: 'pages#contact', as: 'contact'

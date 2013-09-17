@@ -26,4 +26,13 @@ class OrderMailer < ActionMailer::Base
          bcc: ['janh@starlife.cz', 'info@lifeakademie.cz']
         )
   end
+
+  def unpaid(orders)
+    @orders = orders
+    @date = DateTime.now
+
+    attachments.inline['logo.png'] = File.read("#{Rails.root.to_s}/app/assets/images/layout/logo.png")
+
+    mail(to: 'janh@starlife.cz', subject: "Nezaplacené objednávky k #{I18n.localize @date, format: :long}")
+  end
 end
