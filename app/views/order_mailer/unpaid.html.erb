@@ -31,7 +31,7 @@
           <td style="border: 1px solid #000000, padding: 4px;"><%= order.course.price %> Kč</td>
           <td style="border: 1px solid #000000, padding: 4px;"><%= order.user %></td>
           <td style="border: 1px solid #000000, padding: 4px;"><%= I18n.localize order.created_at, format: :long %></td>
-          <td style="border: 1px solid #000000, padding: 4px;"><%= link_to 'Zaplatit', "http://#{@host}#{admin_orders_pay_path(order)}?from_mail=1" %></td>
+          <td style="border: 1px solid #000000, padding: 4px;"><%= link_to 'Nastavit jako zaplaceno', "http://#{@host}#{admin_orders_pay_path(order)}?from_mail=1" %></td>
         </tr>
         <% end %>
         <% if @orders.empty? %>
