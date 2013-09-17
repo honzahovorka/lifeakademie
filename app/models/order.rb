@@ -15,7 +15,7 @@
 class Order < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
-  scope :unpaid, -> { where('paid = ? OR paid = ? OR paid = ?', false, nil, '') }
+  scope :unpaid, -> { where('paid = ?', false) }
 
   belongs_to :user
   belongs_to :course

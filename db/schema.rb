@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805072627) do
+ActiveRecord::Schema.define(version: 20130917092625) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 20130805072627) do
     t.integer  "user_id"
     t.integer  "course_id"
     t.string   "variable_symbol"
-    t.boolean  "paid"
+    t.boolean  "paid",            default: false
     t.datetime "paid_at"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "status"
   end
 
