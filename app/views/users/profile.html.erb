@@ -76,7 +76,8 @@
                 Stornováno
               <% else %>
                 <% if order.paid? %>
-                  Zaplaceno
+                  Zaplaceno<br>
+                  (<%= I18n.localize order.paid_at.to_date %>)
                 <% else %>
                   Čeká na zaplacení
                 <% end %>
