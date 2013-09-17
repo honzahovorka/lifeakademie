@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   layout 'admin', only: [:index, :show]
 
-  before_filter :check_authentication,      except: [:unpaid]
+  before_filter :check_authentication,      except: [:unpaid, :pay_order]
   before_filter :check_editor_privileges,   only:   [:index, :show]
 
   def index
@@ -25,12 +25,16 @@ class OrdersController < ApplicationController
     @order.pay!
     OrderMailer.paid(@order).deliver
 
-    redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
+    if params[:from_mail] == '1'
+      render text: 'OK'
+    else
+      redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
+    end
   end
 
   def unpaid
     @orders = Order.unpaid
-    OrderMailer.unpaid(@orders).deliver
+    OrderMailer.unpaid(@orders, request.host).deliver
 
     render text: 'Odesláno'
   end

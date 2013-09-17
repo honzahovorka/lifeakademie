@@ -27,9 +27,10 @@ class OrderMailer < ActionMailer::Base
         )
   end
 
-  def unpaid(orders)
+  def unpaid(orders, host)
     @orders = orders
     @date = DateTime.now
+    @host = host
 
     attachments.inline['logo.png'] = File.read("#{Rails.root.to_s}/app/assets/images/layout/logo.png")
 
