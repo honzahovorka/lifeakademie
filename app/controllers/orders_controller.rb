@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     OrderMailer.paid(@order).deliver
 
     if params[:from_mail] == '1'
-      render text: 'OK'
+      render text: "Objednávka s variabilním symbolem #{@order.variable_symbol} byla nastavena jako zaplacena."
     else
       redirect_to admin_orders_path, notice: "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
     end
