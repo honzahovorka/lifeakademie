@@ -14,27 +14,27 @@
 
     <h2>Objednávky</h2>
 
-    <table style="width: 100%; border: 1px solid #000, padding: 4px;">
+    <table style="width: 100%; border: 1px solid #000000, padding: 4px;">
       <thead>
         <tr>
-          <th>Variabilní symbol</th>
-          <th>Částka</th>
-          <th>Zákazník</th>
-          <th>Objednáno</th>
+          <th style="text-align: left; border: 1px solid #000000, padding: 4px;">Variabilní symbol</th>
+          <th style="text-align: left; border: 1px solid #000000, padding: 4px;">Částka</th>
+          <th style="text-align: left; border: 1px solid #000000, padding: 4px;">Zákazník</th>
+          <th style="text-align: left; border: 1px solid #000000, padding: 4px;">Objednáno</th>
         </tr>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= order %></td>
-          <td><%= order.course.price %></td>
-          <td><%= order.user %></td>
-          <td><%= I18n.localize order.created_at, format: :long %></td>
+          <td style="border: 1px solid #000000, padding: 4px;"><%= order %></td>
+          <td style="border: 1px solid #000000, padding: 4px;"><%= order.course.price %></td>
+          <td style="border: 1px solid #000000, padding: 4px;"><%= order.user %></td>
+          <td style="border: 1px solid #000000, padding: 4px;"><%= I18n.localize order.created_at, format: :long %></td>
         </tr>
         <% end %>
         <% if @orders.empty? %>
           <tr>
-            <td colspan="7" style="text-align: center;">Nejsou žádné nezaplacené objednávky.</td>
+            <td colspan="7" style="text-align: center; border: 1px solid #000000, padding: 4px;">Nejsou žádné nezaplacené objednávky.</td>
           </tr>
         <% end %>
       </tbody>
