@@ -23,6 +23,7 @@ class Order < ActiveRecord::Base
   belongs_to :course
 
   after_create :generate_variable_symbol!
+  after_create :set_price!
 
   def paid?
     paid
@@ -57,6 +58,11 @@ class Order < ActiveRecord::Base
   def generate_variable_symbol!
     vs = "%07d" % self.id
     self.variable_symbol = "77#{vs}"
+    self.save
+  end
+
+  def set_price!
+    self.price = self.course.price
     self.save
   end
 end
