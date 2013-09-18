@@ -1,6 +1,8 @@
 <section class="sixteen columns">
   <h2>Objednávky</h2>
 
+  <p><small>Celkem objednávek: <b><%= @orders.count %></b> | Celková cena: <b><%= number_to_currency @total_price %></b></small></p>
+
   <table class="custom-table">
     <thead>
       <tr>
