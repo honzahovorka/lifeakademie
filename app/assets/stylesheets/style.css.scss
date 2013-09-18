@@ -3288,8 +3288,14 @@ footer .widget_contact_form label { display: block; }
 
 .custom-table th,
 .custom-table td {
-  padding: 5px 20px;
+  padding: 5px 10px;
   text-align: left;
+  vertical-align: middle;
+}
+
+.admin .custom-table th,
+.admin .custom-table td {
+  font-size: 14px;
 }
 
 .custom-table th {

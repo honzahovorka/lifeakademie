@@ -24,7 +24,7 @@
             NE
           <% end %>
         </td>
-        <td><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, confirm: "Opravdu chcete odstranit uživatele #{user}?" %></td>
+        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, confirm: "Opravdu chcete odstranit uživatele #{user}?" %></td>
       </tr>
       <% end %>
       <% if @users.empty? %>
