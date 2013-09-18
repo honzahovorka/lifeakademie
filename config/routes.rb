@@ -31,7 +31,7 @@ LifeakademieCz::Application.routes.draw do
   post '/kontakt', to: 'contact_messages#create', as: 'send_contact_message'
 
   scope '/admin' do
-    get '/', to: 'dashboard#admin', as: 'admin_dashboard'
+    get '/', to: 'orders#index', as: 'admin_dashboard'
     get '/kurz/vytvorit/novy', to: 'courses#new', as: 'admin_new_course'
     get '/kurz/:id', to: 'courses#view', as: 'admin_course'
     patch '/kurz/:id', to: 'courses#update'
