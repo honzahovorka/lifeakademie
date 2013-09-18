@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th class="c">#</th>
+        <th>Cena</th>
         <th>Zákazník</th>
         <th>Název</th>
         <th>Začátek</th>
@@ -17,6 +18,7 @@
       <% @orders.each do |order| %>
       <tr>
         <td class="c"><%= order %></td>
+        <td><%= number_to_currency order.price %></td>
         <td><%= order.user %></td>
         <td><%= order.course.name %></td>
         <td><%= I18n.localize order.course.start_date %></td>
