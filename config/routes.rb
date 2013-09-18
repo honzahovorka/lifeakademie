@@ -41,6 +41,7 @@ LifeakademieCz::Application.routes.draw do
     get '/objednavky', to: 'orders#index', as: 'admin_orders'
     get '/objednavky/:id/zaplatit', to: 'orders#pay_order', as: 'admin_orders_pay'
     get '/uzivatele', to: 'users#index', as: 'admin_users'
+    delete '/uzivatel/:id', to: 'users#destroy', as: 'destroy_admin_user'
   end
 
   post '/kurzy' => 'courses#create'
