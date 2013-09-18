@@ -7,7 +7,7 @@
         <th>Jméno</th>
         <th>E-mail</th>
         <th>Role</th>
-        <th></th>
+        <th class="c">Aktivní</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,13 @@
         <td><%= user %></td>
         <td><%= link_to user.email, "mailto:#{user.email}" %></td>
         <td><%= I18n.translate "roles.#{user.role}" %></td>
-        <td></td>
+        <td class="c">
+          <% if user.confirmed? %>
+            ANO
+          <% else %>
+            NE
+          <% end %>
+        </td>
       </tr>
       <% end %>
       <% if @users.empty? %>
