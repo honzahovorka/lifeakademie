@@ -6,9 +6,10 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    @total_price = 0
+    @total_paid = @total_unpaid = 0
 
-    @orders.each { |o| @total_price += o.price unless o.price.nil? }
+    @orders.each { |o| @total_paid += o.price unless o.price.nil? || !o.paid }
+    @orders.each { |o| @total_unpaid += o.price unless o.price.nil? || o.paid }
   end
 
 
