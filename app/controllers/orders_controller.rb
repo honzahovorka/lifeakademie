@@ -38,10 +38,4 @@ class OrdersController < ApplicationController
 
     render text: 'Odesláno'
   end
-
-  private
-
-  def check_editor_privileges
-    redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup do administrace' unless current_user.editor?
-  end
 end

@@ -1,0 +1,30 @@
+<section class="sixteen columns">
+  <h2>Uživatelé</h2>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Jméno</th>
+        <th>E-mail</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user %></td>
+        <td><%= link_to user.email, "mailto:#{user.email}" %></td>
+        <td><%= I18n.translate "roles.#{user.role}" %></td>
+        <td></td>
+      </tr>
+      <% end %>
+      <% if @users.empty? %>
+        <tr>
+          <td colspan="7" class="c">Nejsou žádní uživatelé.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+

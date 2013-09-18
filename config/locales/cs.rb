@@ -262,6 +262,11 @@ end
           :body => 'Zpráva'
         }
       }
+    },
+
+    roles: {
+      editor: "Editor",
+      user:   "Uživatel"
     }
   }
 }

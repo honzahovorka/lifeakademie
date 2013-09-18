@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+  layout 'admin', only: [:index]
 
-  before_filter :get_courses,           only: [:new, :create]
-  before_filter :check_authentication,  only: [:complete_registration, :profile]
+  before_filter :get_courses,               only: [:new, :create]
+  before_filter :check_authentication,      only: [:complete_registration, :profile]
+  before_filter :check_editor_privileges,   only: [:index]
+
+  # GET /admin/uzivatele
+  def index
+    @users = User.all
+  end
 
   # GET /registrace
   def new

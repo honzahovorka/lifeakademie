@@ -40,6 +40,7 @@ LifeakademieCz::Application.routes.draw do
     get '/kurzy', to: 'courses#list', as: 'admin_courses'
     get '/objednavky', to: 'orders#index', as: 'admin_orders'
     get '/objednavky/:id/zaplatit', to: 'orders#pay_order', as: 'admin_orders_pay'
+    get '/uzivatele', to: 'users#index', as: 'admin_users'
   end
 
   post '/kurzy' => 'courses#create'
