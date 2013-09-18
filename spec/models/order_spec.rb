@@ -6,10 +6,12 @@
 #  user_id         :integer
 #  course_id       :integer
 #  variable_symbol :string(255)
-#  paid            :boolean
+#  paid            :boolean          default(FALSE)
 #  paid_at         :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  status          :string(255)
+#  price           :float
 #
 
 require 'spec_helper'

@@ -6,10 +6,12 @@
 #  user_id         :integer
 #  course_id       :integer
 #  variable_symbol :string(255)
-#  paid            :boolean
+#  paid            :boolean          default(FALSE)
 #  paid_at         :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  status          :string(255)
+#  price           :float
 #
 
 class Order < ActiveRecord::Base
@@ -57,5 +59,4 @@ class Order < ActiveRecord::Base
     self.variable_symbol = "77#{vs}"
     self.save
   end
-
 end

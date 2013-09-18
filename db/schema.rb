@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917092625) do
+ActiveRecord::Schema.define(version: 20130918083952) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20130917092625) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "status"
+    t.float    "price"
   end
 
   add_index "orders", ["course_id"], name: "index_orders_on_course_id"
