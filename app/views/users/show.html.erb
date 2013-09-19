@@ -95,6 +95,56 @@
     </tbody>
   </table>
 
+  <% unless @user.editor? %>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="c" colspan="7">Objednávky</th>
+      </tr>
+      <tr>
+        <th class="c">#</th>
+        <th>Cena</th>
+        <th>Název</th>
+        <th>Začátek</th>
+        <th>Objednáno</th>
+        <th>Stav</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.orders.each do |order| %>
+      <tr>
+        <td class="c"><%= order %></td>
+        <td><%= number_to_currency order.price %></td>
+        <td><%= order.course.name %></td>
+        <td><%= I18n.localize order.course.start_date %></td>
+        <td><%= I18n.localize order.created_at, format: :short %></td>
+        <td>
+        <% if order.status == 'storno' %>
+          Stornováno
+        <% else %>
+          <% if order.paid? %>
+            Zaplaceno<br>
+            (<%= I18n.localize order.paid_at.to_date %>)
+          <% else %>
+            Čeká na zaplacení
+          <% end %>
+        <% end %>
+        </td>
+        <td></td>
+      </tr>
+      <% end %>
+      <% if @user.orders.empty? %>
+        <tr>
+          <td colspan="7" class="c">Nejsou žádné objednávky.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% end %>
+
 </section>
 
 
