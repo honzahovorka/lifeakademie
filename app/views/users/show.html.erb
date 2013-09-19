@@ -1,12 +1,12 @@
 <section class="sixteen columns user-detail">
-  <h2>Uživatel - <%= @user %> (<%= t("roles.#{@user.role}") %>)</h2>
+  <h2>Uživatel - <%= @user %> <small>(<%= t("roles.#{@user.role}") %>)</small></h2>
 
   <p><small><%= link_to "&larr; Zpět na seznam uživatelů".html_safe, admin_users_path %></small></p>
 
   <table class="custom-table">
     <thead>
       <tr>
-        <th colspan="2">Základní údaje</th>
+        <th class="c" colspan="2">Základní údaje</th>
       </tr>
     </thead>
     <tbody>
@@ -64,7 +64,7 @@
   <table class="custom-table">
     <thead>
       <tr>
-        <th colspan="2">Fakturační adresa</th>
+        <th class="c" colspan="2">Fakturační adresa</th>
       </tr>
     </thead>
     <tbody>
