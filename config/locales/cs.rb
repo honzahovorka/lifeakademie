@@ -228,6 +228,7 @@ end
       :attributes => {
         :user => {
           :email => "E-mail",
+          :phone => "Telefonní číslo",
           :password => "Heslo",
           :name => "Jméno",
           :surname => "Příjmení",

@@ -67,7 +67,14 @@
         <%= f.text_field :surname, placeholder: 'Příjmení' %>
       </div>
     </div>
-
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :phone, 'Telefonní číslo: ' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :phone, placeholder: 'Telefonní číslo' %>
+      </div>
+    </div>
     <div class="row">
       <div class="four columns r label">
         <%= f.label :course_interest, 'Mám zájem o kurz: ' %>
