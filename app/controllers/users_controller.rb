@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   # GET /admin/uzivatele
   def index
-    @users = User.all.order('role DESC')
+    @users = User.users
+    @editors = User.editors
   end
 
   # GET /admin/uzivatel/:id

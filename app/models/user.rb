@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
 
   ROLES = %w(host user student editor)
 
+  scope :users, -> { where(role: 'user').order('created_at DESC') }
+  scope :editors, -> { where(role: 'editor').order('created_at DESC') }
+
   attr_accessor :password, :full_name, :course_interest, :form
 
   before_save :encrypt_password, :check_password_change

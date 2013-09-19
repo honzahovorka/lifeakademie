@@ -6,7 +6,6 @@
       <tr>
         <th>Jméno</th>
         <th>E-mail</th>
-        <th>Role</th>
         <th class="c">Aktivní</th>
         <th class="c">Objednávek</th>
         <th colspan="2"></th>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= user %></td>
         <td><%= link_to user.email, "mailto:#{user.email}" %></td>
-        <td><%= I18n.translate "roles.#{user.role}" %></td>
         <td class="c">
           <% if user.confirmed? %>
             ANO
@@ -32,7 +30,42 @@
       <% end %>
       <% if @users.empty? %>
         <tr>
-          <td colspan="7" class="c">Nejsou žádní uživatelé.</td>
+          <td colspan="6" class="c">Nejsou žádní uživatelé.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2>Editoři</h2>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Jméno</th>
+        <th>E-mail</th>
+        <th class="c">Aktivní</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @editors.each do |user| %>
+      <tr>
+        <td><%= user %></td>
+        <td><%= link_to user.email, "mailto:#{user.email}" %></td>
+        <td class="c">
+          <% if user.confirmed? %>
+            ANO
+          <% else %>
+            NE
+          <% end %>
+        </td>
+        <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
+        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, confirm: "Opravdu chcete odstranit editora #{user}?" %></td>
+      </tr>
+      <% end %>
+      <% if @users.empty? %>
+        <tr>
+          <td colspan="5" class="c">Nejsou žádní editoři.</td>
         </tr>
       <% end %>
     </tbody>
