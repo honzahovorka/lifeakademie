@@ -56,7 +56,8 @@
         <table class="custom-table">
           <thead>
             <tr>
-              <th class="c">#</th>
+              <th class="c">Variabilní symbol</th>
+              <th>Cena</th>
               <th>Název</th>
               <th>Začátek</th>
               <th>Objednáno</th>
@@ -68,6 +69,7 @@
             <% @user.orders.each do |order| %>
             <tr>
               <td class="c"><%= order %></td>
+              <td><%= number_to_currency order.price %></td>
               <td><%= order.course.name %></td>
               <td><%= I18n.localize order.course.start_date %></td>
               <td><%= I18n.localize order.created_at, format: :long %></td>
@@ -76,8 +78,7 @@
                 Stornováno
               <% else %>
                 <% if order.paid? %>
-                  Zaplaceno<br>
-                  (<%= I18n.localize order.paid_at.to_date %>)
+                  Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
                 <% else %>
                   Čeká na zaplacení
                 <% end %>
@@ -93,7 +94,7 @@
             <% end %>
             <% if @user.orders.empty? %>
               <tr>
-                <td colspan="5" class="c">Nejsou žádné objednávky.</td>
+                <td colspan="6" class="c">Nejsou žádné objednávky.</td>
               </tr>
             <% end %>
           </tbody>
