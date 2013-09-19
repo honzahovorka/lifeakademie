@@ -10,10 +10,9 @@
         <th>Cena</th>
         <th>Zákazník</th>
         <th>Název</th>
-        <th>Začátek</th>
         <th>Objednáno</th>
         <th>Zaplaceno</th>
-        <th></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
@@ -22,8 +21,7 @@
         <td class="c"><%= order %></td>
         <td><%= number_to_currency order.price %></td>
         <td><%= order.user %></td>
-        <td><%= order.course.name %></td>
-        <td><%= I18n.localize order.course.start_date %></td>
+        <td><%= order.course.name_with_date %></td>
         <td><%= I18n.localize order.created_at, format: :short %></td>
         <td>
         <% if order.status == 'storno' %>
@@ -35,6 +33,9 @@
             Čeká na zaplacení
           <% end %>
         <% end %>
+        </td>
+        <td>
+          <%= link_to 'Upravit', edit_admin_order_path(order) %>
         </td>
         <td>
           <% if !order.paid? and order.status != 'storno' %>

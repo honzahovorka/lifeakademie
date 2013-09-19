@@ -1,0 +1,33 @@
+<%= form_for @order, url: "/admin/objednavka/#{@order.id}" do |f| %>
+
+  <fieldset>
+    <legend>Kurz</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :price, 'Cena: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :price %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :course_id, 'Kurz: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.select :course_id, options_for_select(@courses.map { |c| [c.name_with_date, c.id] }, @order.course.id) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="nine columns">
+        <button class="button lightgreen small" type="submit">Odeslat</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

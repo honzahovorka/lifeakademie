@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
 
   # GET /admin/kurz/:id
   def view
-    @course = Course.find(params[:id])
+    @course = Course.find params[:id]
   end
 
   # GET /admin/kurz/pridat/novy
@@ -26,12 +26,12 @@ class CoursesController < ApplicationController
 
   # GET /admin/kurz/:id/upravit
   def edit
-    @course = Course.find(params[:id])
+    @course = Course.find params[:id]
   end
 
   # DELETE /admin/kurz/:id
   def destroy
-    @course = Course.find(params[:id])
+    @course = Course.find params[:id]
     @course.destroy
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
 
   # POST /kurzy
   def create
-    @course = Course.new(course_params)
+    @course = Course.new course_params
 
     respond_to do |format|
       if @course.save
@@ -54,10 +54,10 @@ class CoursesController < ApplicationController
 
   # PUT /terminy/:id
   def update
-    @course = Course.find(params[:id])
+    @course = Course.find params[:id]
 
     respond_to do |format|
-      if @course.update_attributes(course_params)
+      if @course.update_attributes course_params
         format.html { redirect_to admin_course_path(@course), notice: 'Kurz úspěšně upraven' }
       else
         format.html { render 'edit' }
@@ -73,7 +73,7 @@ class CoursesController < ApplicationController
 
   # GET /terminy/:id
   def show
-    @course = Course.find(params[:id])
+    @course = Course.find params[:id]
   end
 
   # GET /terminy/:id/prihlaseni

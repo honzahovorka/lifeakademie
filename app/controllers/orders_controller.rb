@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  layout 'admin', only: [:index, :show]
+  layout 'admin', only: [:index, :show, :edit, :update]
 
   before_filter :check_authentication,      except: [:unpaid, :pay_order]
-  before_filter :check_editor_privileges,   only:   [:index, :show]
+  before_filter :check_editor_privileges,   only:   [:index, :show, :edit, :update]
 
+  # GET /admin/objednavky
   def index
     @orders = Order.all
     @total_paid = @total_unpaid = 0
@@ -12,6 +13,25 @@ class OrdersController < ApplicationController
     @orders.each { |o| @total_unpaid += o.price unless o.price.nil? || o.paid }
   end
 
+  # GET /admin/objednavka/:id
+  def edit
+    @order = Order.find params[:id]
+    @courses = Course.all
+  end
+
+  # PATCH /admin/objednavka/:id
+  def update
+    @order = Order.find params[:id]
+    @courses = Course.all
+
+    respond_to do |format|
+      if @order.update_attributes order_params
+        format.html { redirect_to admin_orders_path, notice: 'Objednávka úspěšně upravena' }
+      else
+        format.html { render 'edit' }
+      end
+    end
+  end
 
   def storno
     @order = Order.find params[:id]
@@ -41,5 +61,11 @@ class OrdersController < ApplicationController
     OrderMailer.unpaid(@orders, request.host).deliver
 
     render text: 'Odesláno'
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:course_id, :price)
   end
 end
