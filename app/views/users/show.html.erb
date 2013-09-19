@@ -1,0 +1,100 @@
+<section class="sixteen columns user-detail">
+  <p><small><%= link_to "&larr; Zpět na seznam uživatelů".html_safe, admin_users_path %></small></p>
+
+  <h2>Uživatel - <%= @user %> (<%= t("roles.#{@user.role}") %>)</h2>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th colspan="2">Základní údaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Jméno</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>Příjmení</th>
+        <td><%= @user.surname %></td>
+      </tr>
+      <tr>
+        <th>E-mail</th>
+        <td><%= link_to @user.email, @user.email %></td>
+      </tr>
+      <tr>
+        <th>Aktivní</th>
+        <td><%= @user.email_confirmed ? 'ANO' : 'NE' %></td>
+      </tr>
+      <tr>
+        <th>Ulice</th>
+        <td><%= @user.street %></td>
+      </tr>
+      <tr>
+        <th>Město</th>
+        <td><%= @user.city %></td>
+      </tr>
+      <tr>
+        <th>PSČ</th>
+        <td><%= @user.postal_code %></td>
+      </tr>
+      <tr>
+        <th>Telefon</th>
+        <td><%= @user.phone %></td>
+      </tr>
+      <tr>
+        <th>Datum narození</th>
+        <td><%= I18n.localize @user.date_of_birth unless @user.date_of_birth.nil? %></td>
+      </tr>
+      <tr>
+        <th>Místo narození</th>
+        <td><%= @user.place_of_birth %></td>
+      </tr>
+      <tr>
+        <th>Vytvořen</th>
+        <td><%= I18n.localize @user.created_at, format: :short unless @user.created_at.nil? %></td>
+      </tr>
+      <tr>
+        <th>Naposledy upraven</th>
+        <td><%= I18n.localize @user.updated_at, format: :short unless @user.updated_at.nil? %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th colspan="2">Fakturační adresa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Firma</th>
+        <td><%= @user.company %></td>
+      </tr>
+      <tr>
+        <th>Ulice</th>
+        <td><%= @user.billing_street %></td>
+      </tr>
+      <tr>
+        <th>Město</th>
+        <td><%= @user.billing_city %></td>
+      </tr>
+      <tr>
+        <th>PSČ</th>
+        <td><%= @user.billing_postal_code %></td>
+      </tr>
+      <tr>
+        <th>IČ</th>
+        <td><%= @user.ic %></td>
+      </tr>
+      <tr>
+        <th>DIČ</th>
+        <td><%= @user.dic %></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+

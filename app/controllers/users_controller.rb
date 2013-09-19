@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
-  layout 'admin', only: [:index]
+  layout 'admin', only: [:index, :show]
 
   before_filter :get_courses,               only: [:new, :create]
   before_filter :check_authentication,      only: [:complete_registration, :profile]
-  before_filter :check_editor_privileges,   only: [:index, :destroy]
+  before_filter :check_editor_privileges,   only: [:index, :show, :destroy]
 
   # GET /admin/uzivatele
   def index
     @users = User.all
+  end
+
+  # GET /admin/uzivatel/:id
+  def show
+    @user = User.find params[:id]
   end
 
   # DELETE /admin/uzivatel/:id

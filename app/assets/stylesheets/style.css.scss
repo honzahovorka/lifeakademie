@@ -3304,6 +3304,10 @@ footer .widget_contact_form label { display: block; }
   font-weight: 700;
 }
 
+.user-detail .custom-table tbody tr th {
+  width: 30%;
+}
+
 .custom-table th {
   background:    -moz-radial-gradient(center, ellipse cover,  #fafafa 0%, #eeeded 100%); /* FF3.6+ */
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fafafa), color-stop(100%,#eeeded)); /* Chrome,Safari4+ */
