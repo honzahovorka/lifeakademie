@@ -15,6 +15,7 @@ LifeakademieCz::Application.routes.draw do
   post '/prihlasit', to: 'sessions#create'
 
   get '/profil', to: 'users#profile', as: 'profile'
+  get '/profil/upravit', to: 'users#edit', as: 'edit_profile'
 
   get '/nastenka', to: 'dashboard#index', as: 'dashboard'
 

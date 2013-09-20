@@ -43,6 +43,13 @@
       <div class="twelve columns"><%= @user.postal_code %></div>
     </div>
 
+    <div class="row">
+      <div class="four columns">&nbsp;</div>
+      <div class="twelve columns">
+        <%= link_to 'Upravit údaje', edit_profile_path, class: 'button lightgreen small' %>
+      </div>
+    </div>
+
     <div class="border-divider"></div>
 
     <div class="row">
@@ -94,7 +101,7 @@
             <% end %>
             <% if @user.orders.empty? %>
               <tr>
-                <td colspan="6" class="c">Nejsou žádné objednávky.</td>
+                <td colspan="7" class="c">Nejsou žádné objednávky.</td>
               </tr>
             <% end %>
           </tbody>

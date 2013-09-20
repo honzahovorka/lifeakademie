@@ -68,13 +68,20 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  # GET /profil/upravit
+  def edit
+    @user = current_user
+  end
+
   # PUT /users
   def update
     @user = User.find params[:id]
 
     respond_to do |format|
-      if @user.update_attributes(user_params)
-        if session[:return_to].present?
+      if @user.update_attributes user_params
+        if request.referer.include?('profil/upravit')
+          format.html { redirect_to profile_path, notice: 'Údaje úspěšně uloženy' }
+        elsif session[:return_to].present?
           format.html { redirect_to session[:return_to], notice: 'Údaje úspěšně uloženy' }
         else
           format.html { redirect_to root_path, notice: 'Údaje úspěšně uloženy' }
@@ -82,6 +89,8 @@ class UsersController < ApplicationController
       else
         if request.referer.include?('reset-hesla')
           format.html { render 'change_password' }
+        elsif request.referer.include?('profil/upravit')
+          format.html { render 'edit' }
         else
           format.html { render 'complete_registration' }
         end
