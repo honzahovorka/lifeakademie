@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :message => "se neshoduje s potvrzením hesla"
 
   validates_presence_of :password, unless: :is_from_complete_registration?
-  validates_presence_of [:street, :city, :postal_code, :date_of_birth, :place_of_birth], if: :is_from_complete_registration?
+  validates_presence_of [:street, :city, :postal_code, :date_of_birth, :place_of_birth, :phone], if: :is_from_complete_registration?
 
   has_many :orders
 

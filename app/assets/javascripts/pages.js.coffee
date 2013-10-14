@@ -16,10 +16,12 @@ initPage = ->
       $(this).hide()
 
       bar.hide()
+
       notification = $('<li></li>')
       notification.addClass($(this).attr('class'))
       notification.removeClass('hidden').removeClass('flash_notification')
       notification.prependTo(bar)
+
       bar.show()
       bar.css({
         'top': "-#{(key+1)*41}px"
@@ -27,14 +29,12 @@ initPage = ->
       })
 
       notification.html($(this).html())
-
       notification.click ->
         bar.animate({
           'height': "#{bar.height() - $(this).height() - 7}px"
         }, 'fast', 'linear', ->
           notification.remove()
         )
-
 
     bar.delay(500).animate({
       'top': "#{bar.height()}"
