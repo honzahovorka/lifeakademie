@@ -1,4 +1,4 @@
-$(document).ready ->
+initPage = ->
   if $(".toggle-container").length
     $(".toggle-container").hide()
     $(".box-toggle").on "click", ".trigger", (e) ->
@@ -6,10 +6,8 @@ $(document).ready ->
       self.toggleClass("active").next().stop(true, true).slideToggle "slow"
       e.preventDefault()
 
-$(document).ready ->
   $('.datepicker').datepicker()
 
-$(document).ready ->
   notifications = $('body').find($('.flash_notification'))
   if notifications.length > 0
     bar = $('<ul id="notifications-bar" class="container"></ul>')
@@ -31,8 +29,6 @@ $(document).ready ->
       notification.html($(this).html())
 
       notification.click ->
-        console.log $(this).height()
-        console.log bar.height()
         bar.animate({
           'height': "#{bar.height() - $(this).height() - 7}px"
         }, 'fast', 'linear', ->
@@ -57,6 +53,6 @@ externalLinks = ->
     e.preventDefault()
     window.open($(this).attr('href'))
 
-
 $(document).ready ->
+  initPage()
   externalLinks()
