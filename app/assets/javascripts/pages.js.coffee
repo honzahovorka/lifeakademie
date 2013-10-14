@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-#
 $(document).ready ->
   if $(".toggle-container").length
     $(".toggle-container").hide()
@@ -35,8 +31,10 @@ $(document).ready ->
       notification.html($(this).html())
 
       notification.click ->
+        console.log $(this).height()
+        console.log bar.height()
         bar.animate({
-          'height': "#{bar.height() - $(this).height() - 1}px"
+          'height': "#{bar.height() - $(this).height() - 7}px"
         }, 'fast', 'linear', ->
           notification.remove()
         )
@@ -48,7 +46,6 @@ $(document).ready ->
     }, 'fast')
 
     bar.prependTo($('body'))
-
 
 externalLinks = ->
   # select all links to external sites and add them attribute rel="external"
