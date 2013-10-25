@@ -114,11 +114,14 @@ class User < ActiveRecord::Base
   end
 
   def set_role
-    if email.include?('@lifeakademie.cz') || email.include?('@ovov.cz') || email.include?('@starlife.cz') || email.include?('@decarormg.cz')
-      self.role = 'editor'
-    else
-      self.role = 'user'
-    end
+    # disabled right now
+    # if email.include?('@lifeakademie.cz') || email.include?('@ovov.cz') || email.include?('@starlife.cz') || email.include?('@decarormg.cz')
+    #   self.role = 'editor'
+    # else
+    #   self.role = 'user'
+    # end
+
+    self.role = 'user'
   end
 
   def check_password_change
