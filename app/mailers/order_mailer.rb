@@ -11,6 +11,7 @@ class OrderMailer < ActionMailer::Base
          to: order.user.email,
          subject: "Storno objednávky č. #{@order.variable_symbol} na lifeakademie.cz",
          bcc: ['janh@starlife.cz', 'info@lifeakademie.cz']
+         # bcc: 'janh@starlife.cz'
         )
   end
 
@@ -35,5 +36,6 @@ class OrderMailer < ActionMailer::Base
     attachments.inline['logo.png'] = File.read("#{Rails.root.to_s}/app/assets/images/layout/logo.png")
 
     mail(to: 'ivanak@starlife.cz', bcc: 'janh@starlife.cz', subject: "Nezaplacené objednávky LifeAkademie k #{I18n.localize @date, format: :long}")
+    # mail(to: 'janh@starlife.cz', subject: "Nezaplacené objednávky LifeAkademie k #{I18n.localize @date, format: :long}")
   end
 end

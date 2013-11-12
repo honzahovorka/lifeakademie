@@ -17,7 +17,8 @@
 class Order < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
-  scope :unpaid, -> { where(:paid => false) }
+  scope :unpaid, -> { where('paid = ? AND (status != ? OR status IS NULL)', false, 'storno') }
+  scope :paid, -> { where(paid: true) }
 
   belongs_to :user
   belongs_to :course
@@ -51,6 +52,10 @@ class Order < ActiveRecord::Base
   def storno!
     self.status = 'storno'
     self.save validate: false
+  end
+
+  def storno?
+    status == 'storno'
   end
 
   private

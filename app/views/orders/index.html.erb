@@ -12,7 +12,7 @@
         <th>Název</th>
         <th>Objednáno</th>
         <th>Zaplaceno</th>
-        <th colspan="2"></th>
+        <th colspan="3"></th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +30,11 @@
           <% if order.paid? %>
             Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
           <% else %>
-            Čeká na zaplacení
+            <% if order.storno? %>
+              Stornováno
+            <% else %>
+              Čeká na zaplacení
+            <% end %>
           <% end %>
         <% end %>
         </td>
@@ -40,6 +44,11 @@
         <td>
           <% if !order.paid? and order.status != 'storno' %>
             <%= link_to 'Zaplatit', admin_orders_pay_path(order) %>
+          <% end %>
+        </td>
+        <td>
+          <% if !order.paid? and order.status != 'storno' %>
+            <%= link_to 'Storno', admin_storno_order_path(order), confirm: "Opravdu chcete stornovat objednávku č. #{order}?" %>
           <% end %>
         </td>
       </tr>

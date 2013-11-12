@@ -42,6 +42,7 @@ LifeakademieCz::Application.routes.draw do
     get '/objednavky', to: 'orders#index', as: 'admin_orders'
     get '/objednavka/:id/zaplatit', to: 'orders#pay_order', as: 'admin_orders_pay'
     get '/objednavka/:id/upravit', to: 'orders#edit', as: 'edit_admin_order'
+    get '/objednavky/:id/storno', to: 'orders#admin_storno', as: 'admin_storno_order'
     patch '/objednavka/:id', to: 'orders#update'
     get '/uzivatele', to: 'users#index', as: 'admin_users'
     get '/uzivatel/:id', to: 'users#show', as: 'admin_user'

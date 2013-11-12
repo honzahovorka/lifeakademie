@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails'
+gem 'rails', '4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -19,8 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'fancybox2-rails', '~> 0.2.4'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -33,11 +32,14 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'guard'
   gem 'guard-rspec'
+  gem 'rb-readline', require: false
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'guard-spork', '1.5.0'
   gem 'terminal-notifier-guard'
   gem 'capybara'
+  gem 'forgery'
 end
 
 group :development do
@@ -46,7 +48,7 @@ group :development do
   gem 'annotate'
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
-  gem 'pry-rails'
+  # gem 'pry-rails'
   gem 'awesome_print'
 end
 
