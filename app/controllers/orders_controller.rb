@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @orders = Order.all
     @total_paid = @total_unpaid = 0
 
-    @orders.paid.each   { |o| @total_paid += o.price unless o.price.nil? }
+    @orders.paid.each   { |o| @total_paid   += o.price unless o.price.nil? }
     @orders.unpaid.each { |o| @total_unpaid += o.price unless o.price.nil? }
   end
 
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 
   def storno
     @order = Order.find params[:id]
-    if @order.user == current_user || current_user && current_user.editor?
+    if @order.user == current_user
       @order.storno!
       OrderMailer.storno(@order).deliver
       redirect_to profile_path, notice: "Objednávka č. #{@order.variable_symbol} úspěšně stornována"
