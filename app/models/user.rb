@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def is_eligible?
-    street.present? and city.present? and postal_code.present? and place_of_birth.present? and date_of_birth.present?
+    street.present? and city.present? and postal_code.present? and place_of_birth.present? and date_of_birth.present? and phone.present?
   end
 
   def full_name

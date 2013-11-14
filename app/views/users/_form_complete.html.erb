@@ -14,6 +14,18 @@
       </div>
     </div>
   <% end %>
+  <fieldset>
+    <legend>Kontaktní údaje</legend>
+
+    <div class="row">
+      <div class="four columns r label">
+        <%= f.label :phone, 'Telefonní číslo: ', class: 'required' %>
+      </div>
+      <div class="eleven columns">
+        <%= f.text_field :phone, placeholder: 'Telefonní číslo' %>
+      </div>
+    </div>
+  </fieldset>
 
   <fieldset>
     <legend>Údaje na certifikát</legend>
