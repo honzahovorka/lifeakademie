@@ -49,7 +49,8 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def storno!
+  def storno!(user)
+    return false if user != self.user
     self.status = 'storno'
     self.save validate: false
   end

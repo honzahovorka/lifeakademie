@@ -35,8 +35,7 @@ class OrdersController < ApplicationController
 
   def storno
     @order = Order.find params[:id]
-    if @order.user == current_user
-      @order.storno!
+    if @order.storno!(current_user)
       OrderMailer.storno(@order).deliver
       redirect_to profile_path, notice: "Objednávka č. #{@order.variable_symbol} úspěšně stornována"
     else
