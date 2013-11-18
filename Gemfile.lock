@@ -142,6 +142,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -264,6 +266,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip (~> 3.0)
   pg
+  puma
   quiet_assets
   rack-mini-profiler
   rails (= 4.0.0)

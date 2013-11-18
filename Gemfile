@@ -78,4 +78,5 @@ gem 'modernizr-rails'
 gem 'newrelic_rpm'
 
 # Webserver
+gem 'puma'
 gem 'thin'
