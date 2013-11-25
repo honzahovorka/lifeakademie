@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails', '>= 4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -48,7 +48,7 @@ group :development do
   gem 'annotate'
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
-  # gem 'pry-rails'
+  gem 'pry-rails'
   gem 'awesome_print'
 end
 
