@@ -293,6 +293,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
+h4 {
+  font-weight: 600;
+}
 
 blockquote {
   margin-bottom: 20px !important;
@@ -1221,6 +1224,11 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
   margin: 10px 0;
 }
 
+.courses-info .info {
+  font-size: 14px;
+  padding: 15px 45px 15px 45px;
+}
+
 .info:before,
 .success:before,
 .notice:before,
@@ -1377,6 +1385,11 @@ input[type="text"].wrong-data:-moz-placeholder {color: #fe5214;}
     text-align: center;
   }
 }
+
+.info h4 {
+  color: inherit;
+}
+
 
 /* ---------------------------------------------------------------------- */
 /* User bar
