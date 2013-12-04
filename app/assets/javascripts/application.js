@@ -20,5 +20,5 @@
 //= require url.min.js
 //= require nprogress
 //= require nprogress-turbolinks
-//= require_tree .
 //= require turbolinks
+//= require_tree .
