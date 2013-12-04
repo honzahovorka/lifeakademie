@@ -271,7 +271,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rack-mini-profiler
-  rails (>= 4.0.0)
+  rails (~> 4.0.0)
   rails_12factor
   rb-readline
   rspec-rails
