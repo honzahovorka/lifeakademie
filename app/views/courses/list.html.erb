@@ -20,7 +20,7 @@
         <td><%= number_to_currency course.price %></td>
         <td class="c"><%= link_to 'Zobrazit', admin_course_path(course) %></td>
         <td class="c"><%= link_to 'Upravit',  admin_edit_course_path(course) %></td>
-        <td class="c"><%= link_to 'Smazat',   admin_course_path(course), method: :delete, confirm: 'Opravdu chcete smazat tento termín?' %></td>
+        <td class="c"><%= link_to 'Smazat',   admin_course_path(course), method: :delete, data: { confirm: 'Opravdu chcete smazat tento termín?' } %></td>
       </tr>
       <% end %>
     </tbody>

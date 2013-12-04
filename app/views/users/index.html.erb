@@ -25,7 +25,7 @@
         </td>
         <td class="c"><%= user.orders.where(paid: true).count %> / <%= user.orders.count %></td>
         <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
-        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, confirm: "Opravdu chcete odstranit uživatele #{user}?" %></td>
+        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit uživatele #{user}?" } %></td>
       </tr>
       <% end %>
       <% if @users.empty? %>
@@ -60,7 +60,7 @@
           <% end %>
         </td>
         <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
-        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, confirm: "Opravdu chcete odstranit editora #{user}?" %></td>
+        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit editora #{user}?" } %></td>
       </tr>
       <% end %>
       <% if @users.empty? %>
