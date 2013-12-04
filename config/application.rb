@@ -20,6 +20,8 @@ module LifeakademieCz
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :cs
 
+    I18n.enforce_available_locales = true
+
     config.secret_key_base = '6XVGb3tNSNfyuQt8nt'
 
     # Mailer settings
