@@ -13,7 +13,7 @@
     <div class="border-divider"></div>
     <div class="row">
       <div class="sixteen columns">
-        <p class="c" data-no-turbolink><%= link_to 'Odeslat závaznou objednávku', course_reservation_confirmed_path(@course), class: 'button small lightgreen', confirm: 'Opravdu chcete odeslat závaznou objednávku?' %></p>
+        <p class="c" data-no-turbolink><%= link_to 'Odeslat závaznou objednávku', course_reservation_confirmed_path(@course), class: 'button small lightgreen', data: { confirm: 'Opravdu chcete odeslat závaznou objednávku?' } %></p>
       </div>
     </div>
   </section>

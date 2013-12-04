@@ -48,7 +48,7 @@
         </td>
         <td>
           <% if !order.paid? and order.status != 'storno' %>
-            <%= link_to 'Storno', admin_storno_order_path(order), confirm: "Opravdu chcete stornovat objednávku č. #{order}?" %>
+            <%= link_to 'Storno', admin_storno_order_path(order), data: { confirm: "Opravdu chcete stornovat objednávku č. #{order}?" } %>
           <% end %>
         </td>
       </tr>
