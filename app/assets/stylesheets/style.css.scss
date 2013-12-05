@@ -194,6 +194,11 @@ ul li {
 /* Styling
 /* ---------------------------------------------------------------------- */
 
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 /* Color */
 
 .navigation > div > ul > li:hover > a,

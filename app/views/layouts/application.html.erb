@@ -11,7 +11,7 @@
 
     <title><%= yield(:title).empty? ? 'Life Akademie' : yield(:title) %> | lifeakademie.cz</title>
 
-    <%= stylesheet_link_tag    :application, :media => :all %>
+    <%= stylesheet_link_tag    :application, media: :all %>
     <%= javascript_include_tag :modernizr, "data-turbolinks-track" => true %>
     <%= javascript_include_tag :application %>
     <%= favicon_link_tag '/lifeakademie.ico' %>
