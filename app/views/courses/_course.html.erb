@@ -1,4 +1,4 @@
-<% cache ['v1', @course] do %>
+<% cache ['v1', course] do %>
   <tr>
     <td><%= link_to course.name, course_path(course), title: 'Informace o kurzu' %></td>
     <td><%= course.city %></td>
@@ -21,4 +21,3 @@
     </td>
   </tr>
 <% end %>
-
