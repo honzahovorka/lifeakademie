@@ -1,0 +1,33 @@
+<% cache ['v1', @course] do %>
+<div class="row">
+  <div class="sixteen columns">
+    <h3><%= @course.name_with_date %></h3>
+  </div>
+</div>
+<div class="border-divider"></div>
+
+<div class="row">
+  <div class="two columns">Místo:</div>
+  <div class="fourteen columns"><%= @course.city %></div>
+</div>
+
+<div class="row">
+  <div class="two columns">Začátek:</div>
+  <div class="fourteen columns"><%= I18n.localize(@course.start_date) %></div>
+</div>
+
+<div class="row">
+  <div class="two columns">Program:</div>
+  <div class="fourteen columns"><%= raw @course.program %></div>
+</div>
+
+<div class="row">
+  <div class="two columns">Poznámka:</div>
+  <div class="fourteen columns"><%= raw @course.note %></div>
+</div>
+
+<div class="row">
+  <div class="two columns">Cena:</div>
+  <div class="fourteen columns"><%= number_to_currency @course.price %></div>
+</div>
+<% end %>

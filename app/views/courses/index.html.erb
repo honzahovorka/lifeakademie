@@ -45,29 +45,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @courses.each do |course| %>
-        <tr>
-          <td><%= link_to course.name, course_path(course), title: 'Informace o kurzu' %></td>
-          <td><%= course.city %></td>
-          <td><%= I18n.localize(course.start_date) %></td>
-          <td><%= number_to_currency course.price %></td>
-          <td>
-            <% if course.available %>
-              <% if current_user %>
-                <% if user_ordered_course?(current_user, course.id) %>
-                  Registrovaný kurz
-                <% else %>
-                  <%= link_to 'Přihlásit se do kurzu', course_reservation_path(course) %>
-                <% end %>
-              <% else %>
-                <%= link_to 'Přihlásit se do kurzu', course_reservation_path(course) %>
-              <% end %>
-            <% else %>
-              Nelze se přihlásit
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
+        <%= render @courses %>
         <% if @courses.empty? %>
           <tr>
             <td colspan="5" class="c">Nejsou žádné dostupné termíny.</td>
