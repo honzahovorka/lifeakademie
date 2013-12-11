@@ -1,3 +1,4 @@
+<% cache ['v1', @course] do %>
 <div class="row">
   <div class="sixteen columns">
     <h3><%= @course.name_with_date %></h3>
@@ -29,3 +30,4 @@
   <div class="two columns">Cena:</div>
   <div class="fourteen columns"><%= number_to_currency @course.price %></div>
 </div>
+<% end %>

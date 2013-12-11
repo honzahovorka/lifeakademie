@@ -6,6 +6,8 @@
     Profil uživatele
   </div>
 
+  <% cache ['v1', @user] do %>
+
   <section>
     <div class="row">
       <div class="sixteen columns">
@@ -109,4 +111,6 @@
       </div>
     </div>
   </section>
+
+  <% end # /cache %>
 </section>

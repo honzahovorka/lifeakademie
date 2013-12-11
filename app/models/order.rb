@@ -20,8 +20,8 @@ class Order < ActiveRecord::Base
   scope :unpaid, -> { where('paid = ? AND (status != ? OR status IS NULL)', false, 'storno') }
   scope :paid, -> { where(paid: true) }
 
-  belongs_to :user
-  belongs_to :course
+  belongs_to :user, touch: true
+  belongs_to :course, touch: true
 
   after_create :generate_variable_symbol!
   after_create :set_price!
