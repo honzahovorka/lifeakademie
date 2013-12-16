@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_user
+
   after_filter :return_to
 
   before_filter :set_up_miniprofiler
@@ -9,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    if cookies[:remember_me_id] and cookies[:remember_me_code] and User.find(cookies[:remember_me_id]) and User.find(cookies[:remember_me_id]).remember_me_code == cookies[:remember_me_code]
+    if cookies[:remember_me_id] && cookies[:remember_me_code] && User.find(cookies[:remember_me_id]) && User.find(cookies[:remember_me_id]).remember_me_code == cookies[:remember_me_code]
       @current_user ||= User.find(cookies[:remember_me_id])
     else
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -32,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_up_miniprofiler
-    if current_user && current_user.id == 1
+    if current_user.id == 1
       Rack::MiniProfiler.authorize_request
     end
   end
