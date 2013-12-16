@@ -21,6 +21,9 @@ gem 'nprogress-rails'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'ckeditor_rails'
 
+# Profiling
+gem 'rack-mini-profiler'
+
 # Monitoring
 gem 'newrelic_rpm'
 
@@ -51,7 +54,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'quiet_assets'
-  gem 'rack-mini-profiler'
   gem 'pry-rails'
   gem 'awesome_print'
 end

@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   after_filter :return_to
 
+  before_filter :set_up_miniprofiler
+
   private
 
   def current_user
@@ -27,5 +29,11 @@ class ApplicationController < ActionController::Base
 
   def check_editor_privileges
     redirect_to login_path, alert: 'Nemáte dostatečné oprávnění pro vstup do administrace' unless current_user.editor?
+  end
+
+  def set_up_miniprofiler
+    if current_user && current_user.id == 1
+      Rack::MiniProfiler.authorize_request
+    end
   end
 end
