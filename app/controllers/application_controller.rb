@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_up_miniprofiler
-    if current_user.id == 1
+    if current_user && current_user.id == 1
       Rack::MiniProfiler.authorize_request
     end
   end
