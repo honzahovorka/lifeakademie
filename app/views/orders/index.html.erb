@@ -1,7 +1,9 @@
 <section class="sixteen columns">
   <h2>Objednávky</h2>
 
-  <p><small>Celkem objednávek: <b><%= @orders.count %></b> | Zaplaceno: <b><%= number_to_currency @total_paid %></b> | Nezaplaceno: <b><%= number_to_currency @total_unpaid %></b></small></p>
+  <% cache ['v1', @orders] do %>
+    <p><small>Celkem objednávek: <b><%= @orders.count %></b> | Zaplaceno: <b><%= number_to_currency @total_paid %></b> | Nezaplaceno: <b><%= number_to_currency @total_unpaid %></b></small></p>
+  <% end %>
 
   <table class="custom-table">
     <thead>
@@ -17,41 +19,43 @@
     </thead>
     <tbody>
       <% @orders.each do |order| %>
-      <tr>
-        <td class="c"><%= order %></td>
-        <td><%= number_to_currency order.price %></td>
-        <td><%= order.user %></td>
-        <td><%= order.course.name_with_date %></td>
-        <td><%= I18n.localize order.created_at, format: :short %></td>
-        <td>
-        <% if order.status == 'storno' %>
-          Stornováno
-        <% else %>
-          <% if order.paid? %>
-            Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
-          <% else %>
-            <% if order.storno? %>
+        <% cache ['v1', order] do %>
+          <tr>
+            <td class="c"><%= order %></td>
+            <td><%= number_to_currency order.price %></td>
+            <td><%= order.user %></td>
+            <td><%= order.course.name_with_date %></td>
+            <td><%= I18n.localize order.created_at, format: :short %></td>
+            <td>
+            <% if order.status == 'storno' %>
               Stornováno
             <% else %>
-              Čeká na zaplacení
+              <% if order.paid? %>
+                Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
+              <% else %>
+                <% if order.storno? %>
+                  Stornováno
+                <% else %>
+                  Čeká na zaplacení
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
+            </td>
+            <td>
+              <%= link_to 'Upravit', edit_admin_order_path(order) %>
+            </td>
+            <td>
+              <% if !order.paid? and order.status != 'storno' %>
+                <%= link_to 'Zaplatit', admin_orders_pay_path(order) %>
+              <% end %>
+            </td>
+            <td>
+              <% if !order.paid? and order.status != 'storno' %>
+                <%= link_to 'Storno', admin_storno_order_path(order), data: { confirm: "Opravdu chcete stornovat objednávku č. #{order}?" } %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-        </td>
-        <td>
-          <%= link_to 'Upravit', edit_admin_order_path(order) %>
-        </td>
-        <td>
-          <% if !order.paid? and order.status != 'storno' %>
-            <%= link_to 'Zaplatit', admin_orders_pay_path(order) %>
-          <% end %>
-        </td>
-        <td>
-          <% if !order.paid? and order.status != 'storno' %>
-            <%= link_to 'Storno', admin_storno_order_path(order), data: { confirm: "Opravdu chcete stornovat objednávku č. #{order}?" } %>
-          <% end %>
-        </td>
-      </tr>
       <% end %>
       <% if @orders.empty? %>
         <tr>

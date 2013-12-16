@@ -13,20 +13,22 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
-      <tr>
-        <td><%= user %></td>
-        <td><%= link_to user.email, "mailto:#{user.email}" %></td>
-        <td class="c">
-          <% if user.confirmed? %>
-            ANO
-          <% else %>
-            NE
-          <% end %>
-        </td>
-        <td class="c"><%= user.orders.where(paid: true).count %> / <%= user.orders.count %></td>
-        <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
-        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit uživatele #{user}?" } %></td>
-      </tr>
+        <% cache ['v1', user] do %>
+          <tr>
+            <td><%= user %></td>
+            <td><%= link_to user.email, "mailto:#{user.email}" %></td>
+            <td class="c">
+              <% if user.confirmed? %>
+                ANO
+              <% else %>
+                NE
+              <% end %>
+            </td>
+            <td class="c"><%= user.orders.where(paid: true).count %> / <%= user.orders.count %></td>
+            <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
+            <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit uživatele #{user}?" } %></td>
+          </tr>
+        <% end %>
       <% end %>
       <% if @users.empty? %>
         <tr>
@@ -49,19 +51,21 @@
     </thead>
     <tbody>
       <% @editors.each do |user| %>
-      <tr>
-        <td><%= user %></td>
-        <td><%= link_to user.email, "mailto:#{user.email}" %></td>
-        <td class="c">
-          <% if user.confirmed? %>
-            ANO
-          <% else %>
-            NE
-          <% end %>
-        </td>
-        <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
-        <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit editora #{user}?" } %></td>
-      </tr>
+        <% cache ['v1', user] do %>
+          <tr>
+            <td><%= user %></td>
+            <td><%= link_to user.email, "mailto:#{user.email}" %></td>
+            <td class="c">
+              <% if user.confirmed? %>
+                ANO
+              <% else %>
+                NE
+              <% end %>
+            </td>
+            <td class="c"><%= link_to 'Zobrazit', admin_user_path(user) %></td>
+            <td class="c"><%= link_to 'Odstranit', destroy_admin_user_path(user), method: :delete, data: { confirm: "Opravdu chcete odstranit editora #{user}?" } %></td>
+          </tr>
+        <% end %>
       <% end %>
       <% if @users.empty? %>
         <tr>
