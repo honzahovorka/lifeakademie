@@ -1,149 +1,153 @@
-<section class="sixteen columns user-detail">
-  <h2>Uživatel - <%= @user %> <small>(<%= t("roles.#{@user.role}") %>)</small></h2>
+<section class="sixteen columnsguser-detail">
 
-  <p><small><%= link_to "&larr; Zpět na seznam uživatelů".html_safe, admin_users_path %></small></p>
+  <% cache ['v1', @user, 'admin' ] do %>
 
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th class="c" colspan="2">Základní údaje</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Jméno</th>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th>Příjmení</th>
-        <td><%= @user.surname %></td>
-      </tr>
-      <tr>
-        <th>E-mail</th>
-        <td><%= link_to @user.email, "mailto:#{@user.email}" %></td>
-      </tr>
-      <tr>
-        <th>Aktivní</th>
-        <td><%= @user.email_confirmed ? 'ANO' : 'NE' %></td>
-      </tr>
-      <tr>
-        <th>Ulice</th>
-        <td><%= @user.street %></td>
-      </tr>
-      <tr>
-        <th>Město</th>
-        <td><%= @user.city %></td>
-      </tr>
-      <tr>
-        <th>PSČ</th>
-        <td><%= @user.postal_code %></td>
-      </tr>
-      <tr>
-        <th>Telefon</th>
-        <td><%= @user.phone %></td>
-      </tr>
-      <tr>
-        <th>Datum narození</th>
-        <td><%= I18n.localize @user.date_of_birth unless @user.date_of_birth.nil? %></td>
-      </tr>
-      <tr>
-        <th>Místo narození</th>
-        <td><%= @user.place_of_birth %></td>
-      </tr>
-      <tr>
-        <th>Vytvořen</th>
-        <td><%= I18n.localize @user.created_at, format: :short unless @user.created_at.nil? %></td>
-      </tr>
-      <tr>
-        <th>Naposledy upraven</th>
-        <td><%= I18n.localize @user.updated_at, format: :short unless @user.updated_at.nil? %></td>
-      </tr>
-    </tbody>
-  </table>
+    <h2>Uživatel - <%= @user %> <small>(<%= t("roles.#{@user.role}") %>)</small></h2>
 
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th class="c" colspan="2">Fakturační adresa</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Firma</th>
-        <td><%= @user.company %></td>
-      </tr>
-      <tr>
-        <th>Ulice</th>
-        <td><%= @user.billing_street %></td>
-      </tr>
-      <tr>
-        <th>Město</th>
-        <td><%= @user.billing_city %></td>
-      </tr>
-      <tr>
-        <th>PSČ</th>
-        <td><%= @user.billing_postal_code %></td>
-      </tr>
-      <tr>
-        <th>IČ</th>
-        <td><%= @user.ic %></td>
-      </tr>
-      <tr>
-        <th>DIČ</th>
-        <td><%= @user.dic %></td>
-      </tr>
-    </tbody>
-  </table>
+    <p><small><%= link_to "&larr; Zpět na seznam uživatelů".html_safe, admin_users_path %></small></p>
 
-  <% unless @user.editor? %>
-
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th class="c" colspan="7">Objednávky</th>
-      </tr>
-      <tr>
-        <th class="c">#</th>
-        <th>Cena</th>
-        <th>Název</th>
-        <th>Začátek</th>
-        <th>Objednáno</th>
-        <th>Stav</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.orders.each do |order| %>
-      <tr>
-        <td class="c"><%= order %></td>
-        <td><%= number_to_currency order.price %></td>
-        <td><%= order.course.name %></td>
-        <td><%= I18n.localize order.course.start_date %></td>
-        <td><%= I18n.localize order.created_at, format: :short %></td>
-        <td>
-        <% if order.status == 'storno' %>
-          Stornováno
-        <% else %>
-          <% if order.paid? %>
-            Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
-          <% else %>
-            Čeká na zaplacení
-          <% end %>
-        <% end %>
-        </td>
-        <td></td>
-      </tr>
-      <% end %>
-      <% if @user.orders.empty? %>
+    <table class="custom-table">
+      <thead>
         <tr>
-          <td colspan="7" class="c">Nejsou žádné objednávky.</td>
+          <th class="c" colspan="2">Základní údaje</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Jméno</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>Příjmení</th>
+          <td><%= @user.surname %></td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td><%= link_to @user.email, "mailto:#{@user.email}" %></td>
+        </tr>
+        <tr>
+          <th>Aktivní</th>
+          <td><%= @user.email_confirmed ? 'ANO' : 'NE' %></td>
+        </tr>
+        <tr>
+          <th>Ulice</th>
+          <td><%= @user.street %></td>
+        </tr>
+        <tr>
+          <th>Město</th>
+          <td><%= @user.city %></td>
+        </tr>
+        <tr>
+          <th>PSČ</th>
+          <td><%= @user.postal_code %></td>
+        </tr>
+        <tr>
+          <th>Telefon</th>
+          <td><%= @user.phone %></td>
+        </tr>
+        <tr>
+          <th>Datum narození</th>
+          <td><%= I18n.localize @user.date_of_birth unless @user.date_of_birth.nil? %></td>
+        </tr>
+        <tr>
+          <th>Místo narození</th>
+          <td><%= @user.place_of_birth %></td>
+        </tr>
+        <tr>
+          <th>Vytvořen</th>
+          <td><%= I18n.localize @user.created_at, format: :short unless @user.created_at.nil? %></td>
+        </tr>
+        <tr>
+          <th>Naposledy upraven</th>
+          <td><%= I18n.localize @user.updated_at, format: :short unless @user.updated_at.nil? %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th class="c" colspan="2">Fakturační adresa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Firma</th>
+          <td><%= @user.company %></td>
+        </tr>
+        <tr>
+          <th>Ulice</th>
+          <td><%= @user.billing_street %></td>
+        </tr>
+        <tr>
+          <th>Město</th>
+          <td><%= @user.billing_city %></td>
+        </tr>
+        <tr>
+          <th>PSČ</th>
+          <td><%= @user.billing_postal_code %></td>
+        </tr>
+        <tr>
+          <th>IČ</th>
+          <td><%= @user.ic %></td>
+        </tr>
+        <tr>
+          <th>DIČ</th>
+          <td><%= @user.dic %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% unless @user.editor? %>
+
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th class="c" colspan="7">Objednávky</th>
+        </tr>
+        <tr>
+          <th class="c">#</th>
+          <th>Cena</th>
+          <th>Název</th>
+          <th>Začátek</th>
+          <th>Objednáno</th>
+          <th>Stav</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.orders.each do |order| %>
+        <tr>
+          <td class="c"><%= order %></td>
+          <td><%= number_to_currency order.price %></td>
+          <td><%= order.course.name %></td>
+          <td><%= I18n.localize order.course.start_date %></td>
+          <td><%= I18n.localize order.created_at, format: :short %></td>
+          <td>
+          <% if order.status == 'storno' %>
+            Stornováno
+          <% else %>
+            <% if order.paid? %>
+              Zaplaceno <small>(<%= I18n.localize order.paid_at.to_date %>)</small>
+            <% else %>
+              Čeká na zaplacení
+            <% end %>
+          <% end %>
+          </td>
+          <td></td>
+        </tr>
+        <% end %>
+        <% if @user.orders.empty? %>
+          <tr>
+            <td colspan="7" class="c">Nejsou žádné objednávky.</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
   <% end %>
 
+<% end %>
 </section>
 
 
