@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <% @orders.each do |order| %>
-        <% cache ['v1', order] do %>
+        <% cache ['v2', order] do %>
           <tr>
             <td class="c"><%= order %></td>
             <td><%= number_to_currency order.price %></td>
