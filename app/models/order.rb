@@ -50,7 +50,7 @@ class Order < ActiveRecord::Base
   end
 
   def storno!(user)
-    return false if user != self.user
+    return false if user != self.user || !user.editor?
     self.status = 'storno'
     self.save validate: false
   end

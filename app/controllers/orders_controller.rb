@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
 
   def admin_storno
     @order = Order.find params[:id]
-      @order.storno!
+      @order.storno!(current_user)
       OrderMailer.storno(@order).deliver
       redirect_to admin_orders_path, notice: "Objednávka č. #{@order.variable_symbol} úspěšně stornována"
   end
