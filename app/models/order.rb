@@ -50,9 +50,11 @@ class Order < ActiveRecord::Base
   end
 
   def storno!(user)
-    return false if user != self.user || !user.editor?
-    self.status = 'storno'
-    self.save validate: false
+    if user != self.user && !user.editor?
+      return false
+    end
+
+    self.update_attribute(:status, 'storno')
   end
 
   def storno?
@@ -63,12 +65,10 @@ class Order < ActiveRecord::Base
 
   def generate_variable_symbol!
     vs = "%07d" % self.id
-    self.variable_symbol = "77#{vs}"
-    self.save
+    self.update_attribute(:variable_symbol, "77#{vs}")
   end
 
   def set_price!
-    self.price = self.course.price
-    self.save
+    self.update_attribute(:price, self.course.price)
   end
 end
