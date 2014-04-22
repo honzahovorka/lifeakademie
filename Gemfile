@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt'
 gem "paperclip", "~> 3.0"
 
 # JavasScript libs

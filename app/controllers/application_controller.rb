@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def return_to
     except_urls = %w(/prihlasit /admin/prihlasit /sessions /odhlasit)
-    if !(except_urls.include?(request.path) || request.path.include?('ajax') || request.path.include?('reset-hesla') || request.path.include?('users') || request.path.include?('registrace'))
+    if !(except_urls.include?(request.path) || request.path.include?('ajax') || request.path.include?('reset-hesla') || request.path.include?('users') || request.path.include?('registrace') || request.path.include?('peek'))
       session[:return_to] = request.path
     end
   end
