@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_up_miniprofiler
 
+  def peek_enabled?
+    current_user.present? && current_user.editor?
+  end
+
   private
 
   def current_user
@@ -34,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def set_up_miniprofiler
     if current_user && current_user.id == 1
-      Rack::MiniProfiler.authorize_request
+#       Rack::MiniProfiler.authorize_request
     end
   end
 end

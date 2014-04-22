@@ -1,4 +1,5 @@
 LifeakademieCz::Application.routes.draw do
+  mount Peek::Railtie => '/peek'
   resources :users
   # resources :courses
 
