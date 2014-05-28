@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
     if user
       if user.confirmed?
         if params[:remember_me]
-          cookies[:remember_me_id] = { value: user.id.to_s, expires: 30.day.from_now }
-          cookies[:remember_me_code] = { value: user.remember_me_code, expires: 30.days.from_now }
+          cookies[:remember_me_id]   = { value: user.id.to_s,           expires: 30.days.from_now }
+          cookies[:remember_me_code] = { value: user.remember_me_code,  expires: 30.days.from_now }
         end
         session[:user_id] = user.id
 
