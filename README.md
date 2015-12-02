@@ -1,5 +1,5 @@
 # LifeAkademie web
-[![Build Status](https://travis-ci.org/honzahovorka/lifeakademie.svg?branch=master)](https://travis-ci.org/honzahovorka/ovov-calculator)
+[![Build Status](https://travis-ci.org/honzahovorka/lifeakademie.svg?branch=master)](https://travis-ci.org/honzahovorka/lifeakademie)
 
 Web created for canceled project LifeAkademie. Example still running on http://lifeakademie.herokuapp.com
 
