@@ -39,13 +39,21 @@ describe User do
 
   it { should respond_to :name }
 
+  context "#full_name" do
+    it 'should use name + surname as fullname' do
+      user.full_name.should eq 'John Doe'
+    end
+  end
+
   context "#set_role" do
     it "should set user role to user with email domain other than @starlife.cz and others" do
       user.role.should eq('user')
     end
+  end
 
-    it "should set editor role to user with email domain @starlife.cz" do
-      starlife_user.role.should eq('editor')
+  context "#to_s" do
+    it "should fullname as string representation of object" do
+      user.to_s.should eq 'John Doe'
     end
   end
 

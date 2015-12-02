@@ -30,6 +30,7 @@ describe "Admin sections" do
   it "should let in logged editor user" do
     @user = FactoryGirl.create(:starlife_user)
     @user.confirm_email!
+    @user.role = 'editor'
     @user.save!
 
     visit admin_dashboard_path

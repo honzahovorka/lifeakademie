@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{name} #{surname}"
+    [name, surname].join(' ')
   end
 
   def remember_me_code
@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    "#{name} #{surname}"
+    full_name
   end
 
   def generate_confirmation_hash!

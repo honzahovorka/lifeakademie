@@ -32,20 +32,18 @@ class Order < ActiveRecord::Base
 
   # Set order as payed and update paid_at time
   def pay!
-    self.paid = true
-    self.paid_at = DateTime.now
-    self.save
+    update_attributes paid: true, paid_at: DateTime.now
   end
 
   def to_s
-    self.variable_symbol
+    variable_symbol
   end
 
   def due_pay
-    if self.course.start_date - 7.days >= DateTime.now
-      self.course.start_date - 7.days
+    if course.start_date - 7.days >= DateTime.now
+      course.start_date - 7.days
     else
-      self.course.start_date - 3.days
+      course.start_date - 3.days
     end
   end
 
@@ -54,7 +52,7 @@ class Order < ActiveRecord::Base
       return false
     end
 
-    self.update_attribute(:status, 'storno')
+    update_attribute(:status, 'storno')
   end
 
   def storno?
@@ -64,11 +62,11 @@ class Order < ActiveRecord::Base
   private
 
   def generate_variable_symbol!
-    vs = "%07d" % self.id
-    self.update_attribute(:variable_symbol, "77#{vs}")
+    vs = "%07d" % id
+    update_attribute(:variable_symbol, "77#{vs}")
   end
 
   def set_price!
-    self.update_attribute(:price, self.course.price)
+    update_attribute(:price, course.price)
   end
 end

@@ -5,6 +5,7 @@ describe "Admin orders section" do
   before :each do
     @user = FactoryGirl.create :starlife_user
     @user.confirm_email!
+    @user.role = 'editor'
     @user.save
 
     visit login_path
@@ -42,7 +43,7 @@ describe "Admin orders section" do
     describe "there is unpaid order" do
       it "should have one unpaid order" do
         within 'table' do
-          page.should have_content 'Nezaplaceno'
+          page.should have_content 'Čeká na zaplacení'
         end
       end
 
@@ -57,7 +58,7 @@ describe "Admin orders section" do
          click_link 'Zaplatit'
        end
        page.should_not have_content 'Zaplatit'
-       page.should_not have_content 'Nezaplaceno'
+       page.should_not have_content 'Čeká na zaplacení'
        page.should have_content DateTime.now.strftime('%d. %m. %Y')
        page.should have_content "Objednávka s VS #{@order.variable_symbol} úspěšně zaplacena"
       end

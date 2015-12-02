@@ -18,7 +18,7 @@ require 'spec_helper'
 
 describe Order do
 
-  let(:order) { FactoryGirl.create(:order) }
+  subject { FactoryGirl.create(:order) }
 
   it { should belong_to :user }
   it { should belong_to :course }
@@ -35,15 +35,13 @@ describe Order do
 
   context "#generate_variable_symbol!" do
     it "should generate the right variable symbol" do
-      subject.save
-      subject.variable_symbol.should eq('00000001')
+      subject.variable_symbol.should eq('770000001')
     end
   end
 
   context "#to_s" do
     it "should return variable symbol as string representation of object" do
-      subject.save!
-      subject.to_s.should eq('00000001')
+      subject.to_s.should eq('770000001')
     end
   end
 
